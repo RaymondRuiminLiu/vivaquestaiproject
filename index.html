@@ -808,8 +808,7 @@
                 </p>
             </div>
             <div class="about-visual reveal">
-                <img src="logo-zh.svg" alt="Vivaquest 维拓" class="about-logo" id="logo-zh" style="display:block;">
-                <img src="logo-en.svg" alt="Vivaquest" class="about-logo" id="logo-en" style="display:none;">
+                <img src="logo-about.png" alt="Vivaquest" class="about-logo">
             </div>
         </div>
     </section>
@@ -1057,9 +1056,7 @@
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
 
-            // Switch about logos
-            document.getElementById('logo-zh').style.display = lang === 'zh' ? 'block' : 'none';
-            document.getElementById('logo-en').style.display = lang === 'en' ? 'block' : 'none';
+
         }
 
         // 导航栏滚动效果
