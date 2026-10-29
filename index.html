@@ -166,6 +166,30 @@
             pointer-events: none;
         }
 
+        .hero-galaxy {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .hero-galaxy iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            opacity: 0.6;
+        }
+        .hero-veil {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, rgba(10,10,15,0.15) 0%, rgba(10,10,15,0.55) 55%, rgba(10,10,15,0.85) 100%);
+        }
+        .hero > *:not(.hero-galaxy):not(.hero-veil) {
+            position: relative;
+            z-index: 2;
+        }
+
         .hero h1 {
             font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
@@ -234,6 +258,19 @@
         .btn-outline:hover {
             background: rgba(255,255,255,0.05);
             border-color: rgba(255,255,255,0.3);
+        }
+
+        .btn-galaxy {
+            background: linear-gradient(135deg, rgba(0,212,170,0.14), rgba(6,182,212,0.14));
+            border: 1px solid rgba(0,212,170,0.55);
+            color: var(--accent-light);
+            box-shadow: 0 0 20px rgba(0,212,170,0.2), inset 0 0 12px rgba(0,212,170,0.08);
+        }
+
+        .btn-galaxy:hover {
+            box-shadow: 0 0 34px rgba(0,212,170,0.45), inset 0 0 16px rgba(0,212,170,0.15);
+            transform: translateY(-2px);
+            color: #fff;
         }
 
         .scroll-indicator {
@@ -687,7 +724,7 @@
             </a>
             <div class="nav-links">
                 <a href="#services" data-i18n="nav_services">服务</a>
-                <a href="#galaxy" data-i18n="nav_galaxy">知识图谱</a>
+                <a href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" data-i18n="nav_galaxy">✦ AI星云</a>
                 <a href="#about" data-i18n="nav_about">关于</a>
                 <a href="#contact" data-i18n="nav_contact">联系</a>
                 <a href="#contact" class="nav-cta" data-i18n="nav_join">加入我们</a>
@@ -704,6 +741,10 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-galaxy" aria-hidden="true">
+            <iframe id="galaxyFrame" title="AI 星云知识图谱背景" tabindex="-1" style="pointer-events:none"></iframe>
+        </div>
+        <div class="hero-veil" aria-hidden="true"></div>
         <h1>
             <span class="line1" data-i18n="hero_line1">懂AI，用AI，</span><br>
             <span class="line2" data-i18n="hero_line2">致胜未来</span>
@@ -713,6 +754,7 @@
         </p>
         <div class="hero-buttons">
             <a href="#services" class="btn btn-primary" data-i18n="hero_cta_primary">探索服务矩阵 →</a>
+            <a href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" class="btn btn-galaxy" data-i18n="hero_cta_galaxy">✦ 进入 AI 星云</a>
             <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_secondary">联系合作</a>
         </div>
         <div class="scroll-indicator">↓</div>
@@ -815,20 +857,6 @@
         </div>
     </section>
 
-    <!-- AI 星云知识图谱 -->
-    <section id="galaxy" class="galaxy-section">
-        <div class="section reveal" style="padding-bottom: 2.5rem;">
-            <div class="section-header" style="margin-bottom: 0;">
-                <div class="section-label" data-i18n="galaxy_label">AI Galaxy</div>
-                <h2 class="section-title" data-i18n="galaxy_title">AI 星云知识图谱</h2>
-                <p class="section-desc" data-i18n="galaxy_desc">把从零基础到行业前沿的完整 AI 知识体系绘成一张可探索的星空：七大模块、百余知识点、大师演讲、免费名校课程与中美产业格局，点击任意星辰查看详解与学习资源。</p>
-            </div>
-        </div>
-        <div class="galaxy-frame reveal">
-            <iframe id="galaxyFrame" src="https://waxc44h3ahzns.ok.kimi.link/?embed=1" title="AI 星云知识图谱" loading="lazy" allowfullscreen></iframe>
-        </div>
-    </section>
-
     <!-- 关于我们 -->
     <section id="about" class="section">
         <div class="about-grid">
@@ -916,7 +944,7 @@
         const content = {
             zh: {
                 nav_services: "服务",
-                nav_galaxy: "知识图谱",
+                nav_galaxy: "✦ AI星云",
                 nav_about: "关于",
                 nav_contact: "联系",
                 nav_join: "加入我们",
@@ -924,13 +952,11 @@
                 hero_line2: "致胜未来",
                 hero_subtitle: "Vivaquest 维拓——专注青少年AI素养教育，从基础知识到科研实战，构建面向未来的成长路径。",
                 hero_cta_primary: "探索服务矩阵 →",
+                hero_cta_galaxy: "✦ 进入 AI 星云",
                 hero_cta_secondary: "联系合作",
                 services_label: "Programs",
                 services_title: "服务/项目 矩阵",
                 services_desc: "从启蒙素养，到项目研究，紧扣AI发展脉搏",
-                galaxy_label: "AI Galaxy",
-                galaxy_title: "AI 星云知识图谱",
-                galaxy_desc: "把从零基础到行业前沿的完整 AI 知识体系绘成一张可探索的星空：七大模块、百余知识点、大师演讲、免费名校课程与中美产业格局，点击任意星辰查看详解与学习资源。",
                 s1_name: "AI素养项目",
                 s1_d1: "网络课程",
                 s1_d2: "AI基础知识与全景概论",
@@ -989,7 +1015,7 @@
             },
             en: {
                 nav_services: "Services",
-                nav_galaxy: "Galaxy",
+                nav_galaxy: "✦ AI Galaxy",
                 nav_about: "About",
                 nav_contact: "Contact",
                 nav_join: "Join Us",
@@ -997,13 +1023,11 @@
                 hero_line2: "Win the Future",
                 hero_subtitle: "Vivaquest — Dedicated to AI literacy education for youth, from fundamentals to research practice, building pathways to the future.",
                 hero_cta_primary: "Explore Programs →",
+                hero_cta_galaxy: "✦ Enter the AI Galaxy",
                 hero_cta_secondary: "Get in Touch",
                 services_label: "Programs",
                 services_title: "Programs & Services",
                 services_desc: "From foundational literacy to research projects, staying in sync with the pulse of AI development.",
-                galaxy_label: "AI Galaxy",
-                galaxy_title: "The AI Knowledge Galaxy",
-                galaxy_desc: "Explore the complete AI knowledge system as an interactive starfield: seven modules, 100+ knowledge nodes, master keynotes, free university courses, and the China-US industry landscape. Click any star for details and learning resources.",
                 s1_name: "AI Literacy Program",
                 s1_d1: "Online Courses",
                 s1_d2: "AI Fundamentals & Panoramic Overview",
@@ -1096,10 +1120,27 @@
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             const gf = document.getElementById('galaxyFrame');
-            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=1&lang=' + lang;
+            if (gf) {
+                if (window.innerWidth >= 768) {
+                    gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + lang;
+                } else {
+                    gf.remove();
+                }
+            }
 
 
         }
+
+        // 初始化星云背景：大屏才加载，手机端保持渐变背景省流量
+        (function initGalaxyBg() {
+            const gf = document.getElementById('galaxyFrame');
+            if (!gf) return;
+            if (window.innerWidth >= 768) {
+                gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + currentLang;
+            } else {
+                gf.remove();
+            }
+        })();
 
         // 导航栏滚动效果
         window.addEventListener('scroll', () => {
