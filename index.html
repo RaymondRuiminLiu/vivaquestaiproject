@@ -371,6 +371,23 @@
             width: fit-content;
         }
 
+        /* ===== AI 星云知识图谱嵌入 ===== */
+        .galaxy-section { background: #08080c; }
+
+        .galaxy-frame {
+            width: 100%;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .galaxy-frame iframe {
+            display: block;
+            width: 100%;
+            height: 82vh;
+            min-height: 520px;
+            border: 0;
+        }
+
         /* ===== 关于我们 ===== */
         .about-grid {
             display: grid;
@@ -670,6 +687,7 @@
             </a>
             <div class="nav-links">
                 <a href="#services" data-i18n="nav_services">服务</a>
+                <a href="#galaxy" data-i18n="nav_galaxy">知识图谱</a>
                 <a href="#about" data-i18n="nav_about">关于</a>
                 <a href="#contact" data-i18n="nav_contact">联系</a>
                 <a href="#contact" class="nav-cta" data-i18n="nav_join">加入我们</a>
@@ -797,6 +815,20 @@
         </div>
     </section>
 
+    <!-- AI 星云知识图谱 -->
+    <section id="galaxy" class="galaxy-section">
+        <div class="section reveal" style="padding-bottom: 2.5rem;">
+            <div class="section-header" style="margin-bottom: 0;">
+                <div class="section-label" data-i18n="galaxy_label">AI Galaxy</div>
+                <h2 class="section-title" data-i18n="galaxy_title">AI 星云知识图谱</h2>
+                <p class="section-desc" data-i18n="galaxy_desc">把从零基础到行业前沿的完整 AI 知识体系绘成一张可探索的星空：七大模块、百余知识点、大师演讲、免费名校课程与中美产业格局，点击任意星辰查看详解与学习资源。</p>
+            </div>
+        </div>
+        <div class="galaxy-frame reveal">
+            <iframe id="galaxyFrame" src="https://waxc44h3ahzns.ok.kimi.link/?embed=1" title="AI 星云知识图谱" loading="lazy" allowfullscreen></iframe>
+        </div>
+    </section>
+
     <!-- 关于我们 -->
     <section id="about" class="section">
         <div class="about-grid">
@@ -884,6 +916,7 @@
         const content = {
             zh: {
                 nav_services: "服务",
+                nav_galaxy: "知识图谱",
                 nav_about: "关于",
                 nav_contact: "联系",
                 nav_join: "加入我们",
@@ -895,6 +928,9 @@
                 services_label: "Programs",
                 services_title: "服务/项目 矩阵",
                 services_desc: "从启蒙素养，到项目研究，紧扣AI发展脉搏",
+                galaxy_label: "AI Galaxy",
+                galaxy_title: "AI 星云知识图谱",
+                galaxy_desc: "把从零基础到行业前沿的完整 AI 知识体系绘成一张可探索的星空：七大模块、百余知识点、大师演讲、免费名校课程与中美产业格局，点击任意星辰查看详解与学习资源。",
                 s1_name: "AI素养项目",
                 s1_d1: "网络课程",
                 s1_d2: "AI基础知识与全景概论",
@@ -953,6 +989,7 @@
             },
             en: {
                 nav_services: "Services",
+                nav_galaxy: "Galaxy",
                 nav_about: "About",
                 nav_contact: "Contact",
                 nav_join: "Join Us",
@@ -964,6 +1001,9 @@
                 services_label: "Programs",
                 services_title: "Programs & Services",
                 services_desc: "From foundational literacy to research projects, staying in sync with the pulse of AI development.",
+                galaxy_label: "AI Galaxy",
+                galaxy_title: "The AI Knowledge Galaxy",
+                galaxy_desc: "Explore the complete AI knowledge system as an interactive starfield: seven modules, 100+ knowledge nodes, master keynotes, free university courses, and the China-US industry landscape. Click any star for details and learning resources.",
                 s1_name: "AI Literacy Program",
                 s1_d1: "Online Courses",
                 s1_d2: "AI Fundamentals & Panoramic Overview",
@@ -1055,6 +1095,8 @@
             // Update buttons
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            const gf = document.getElementById('galaxyFrame');
+            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=1&lang=' + lang;
 
 
         }
