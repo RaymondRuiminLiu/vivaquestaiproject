@@ -1120,26 +1120,15 @@
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             const gf = document.getElementById('galaxyFrame');
-            if (gf) {
-                if (window.innerWidth >= 768) {
-                    gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + lang;
-                } else {
-                    gf.remove();
-                }
-            }
+            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + lang;
 
 
         }
 
-        // 初始化星云背景：大屏才加载，手机端保持渐变背景省流量
+        // 初始化星云背景：全设备加载（微信内由星云页自动降级为 2D 兼容模式）
         (function initGalaxyBg() {
             const gf = document.getElementById('galaxyFrame');
-            if (!gf) return;
-            if (window.innerWidth >= 768) {
-                gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + currentLang;
-            } else {
-                gf.remove();
-            }
+            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + currentLang;
         })();
 
         // 导航栏滚动效果
