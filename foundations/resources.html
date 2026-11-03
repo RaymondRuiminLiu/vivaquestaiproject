@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资源平台 | 博采众长 | Vivaquest 维拓</title>
+    <meta name="description" content="维拓把全球优质免费课程与工具按知识点挂入 AI 星云知识图谱，链接直达官方页面。">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #111118;
+            --bg-card-hover: #161620;
+            --accent: #00d4aa;
+            --accent-light: #33e0bf;
+            --text: #ffffff;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --border: rgba(255,255,255,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: 64px; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(10,10,15,0.88); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .navbar a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+        .navbar a:hover { color: var(--accent); }
+        .navbar .logo img { height: 40px; width: auto; opacity: 0.95; }
+        .back { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+        .page { max-width: 860px; margin: 0 auto; padding: 120px 1.5rem 4rem; }
+        .kicker { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.25em; text-align: center; margin-bottom: 0.75rem; }
+        h1 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .orgs { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .tagline { text-align: center; color: var(--text-dim); font-size: 0.95rem; margin-bottom: 3rem; }
+
+        .block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .block-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .block-head svg { width: 26px; height: 26px; stroke: var(--accent); flex-shrink: 0; }
+        .block-head h2 { font-size: 1.15rem; letter-spacing: 0.1em; }
+        .block p { color: #d1d5db; font-size: 0.96rem; margin-bottom: 0.9rem; }
+        .block p:last-child { margin-bottom: 0; }
+        .block ul { margin: 0 0 0.9rem 1.2rem; color: #d1d5db; font-size: 0.96rem; }
+        .block ul:last-child { margin-bottom: 0; }
+        .block li { margin-bottom: 0.5rem; }
+        .block li:last-child { margin-bottom: 0; }
+        .block li::marker { color: var(--accent); }
+
+        .ref-item { margin-bottom: 1.15rem; }
+        .ref-item:last-child { margin-bottom: 0; }
+        .ref-item .rt { font-weight: 600; font-size: 0.98rem; color: var(--text); }
+        .ref-item .rt a { color: var(--text); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.25); }
+        .ref-item .rt a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .ref-item .rs a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(0,212,170,0.4); }
+        .ref-item .rs { color: var(--text-muted); font-size: 0.84rem; margin-top: 0.2rem; }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .chip {
+            display: inline-block; padding: 0.32rem 0.85rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border); border-radius: 999px;
+            font-size: 0.8rem; color: var(--text-muted);
+        }
+        a.chip { color: var(--accent); text-decoration: none; }
+        a.chip:hover { background: rgba(0,212,170,0.12); }
+
+        .gap {
+            border-left: 2px solid var(--accent);
+            padding: 0.6rem 0 0.6rem 1rem;
+            color: var(--text-muted); font-size: 0.92rem;
+        }
+        .gap strong { color: var(--text); font-weight: 600; }
+
+        .pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; }
+        .pager a {
+            flex: 1; max-width: 48%;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1rem 1.25rem; color: var(--text); text-decoration: none; font-size: 0.92rem;
+            transition: background .2s;
+        }
+        .pager a:hover { background: var(--bg-card-hover); }
+        .pager a span { display: block; color: var(--text-dim); font-size: 0.75rem; margin-bottom: 0.2rem; }
+        .pager .next { text-align: right; }
+        .footer { text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+
+        @media (max-width: 640px) {
+            .page { padding-top: 100px; }
+            .block { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="../index.html"><img src="../logo-nav.png" alt="Vivaquest"></a>
+        <a class="back" href="../index.html#foundations">← 返回首页 · 博采众长</a>
+    </nav>
+
+    <main class="page">
+        <div class="kicker">博采众长 · 第 五 层</div>
+        <h1>资源平台</h1>
+        <div class="orgs">Google · Minecraft · Scratch 等</div>
+        <div class="tagline">全球免费课直接挂进图谱，只做导流，不做搬运</div>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <h2>参 考</h2>
+            </div>
+            <div class="ref-item">
+                <div class="rt"><a href="https://teachablemachine.withgoogle.com" target="_blank" rel="noopener">Teachable Machine · Google</a></div>
+                <div class="rs">无需代码，浏览器内训练图像／声音模型。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://colab.research.google.com" target="_blank" rel="noopener">Google Colab · Google</a></div>
+                <div class="rs">浏览器内运行 Python，免装环境。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://scratch.mit.edu" target="_blank" rel="noopener">Scratch · MIT</a></div>
+                <div class="rs">图形化编程，未成年人友好。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://education.minecraft.net" target="_blank" rel="noopener">Minecraft 教育版 · Microsoft</a></div>
+                <div class="rs">游戏化学习场景。</div>
+            </div>            <div class="ref-item">
+                <div class="rt">阿里云 · 华为云 官方学堂</div>
+                <div class="rs">国产大厂课程与工具链。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://ocw.mit.edu" target="_blank" rel="noopener">MIT OpenCourseWare · MIT</a></div>
+                <div class="rs">高校开放课，进阶资源。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://cs229.stanford.edu" target="_blank" rel="noopener">斯坦福 CS229／CS221／CS224n · 斯坦福大学</a></div>
+                <div class="rs">AI 经典课程，进阶资源。</div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <h2>吸 纳</h2>
+            </div>
+            <ul>
+                <li>核验可及性</li>
+                <li>测试链接速度</li>
+                <li>检查隐私保护机制</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                <h2>调 整</h2>
+            </div>
+            <ul>
+                <li>确保连接稳定</li>
+                <li>国产技术生态中选定可替代方案</li>
+            </ul>
+        </section>
+
+        <div class="pager">
+            <a href="pedagogy.html"><span>← 上一层</span>教学方法</a>
+            <a class="next" href="assessment.html"><span>下一层 →</span>评估机制</a>
+        </div>
+
+        <div class="footer">维拓（Viva Quest）· 成都高远动量教育科技有限公司</div>
+    </main>
+</body>
+</html>

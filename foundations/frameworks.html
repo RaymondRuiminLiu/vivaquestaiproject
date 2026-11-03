@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标准框架 | 博采众长 | Vivaquest 维拓</title>
+    <meta name="description" content="维拓以 UNESCO《学生人工智能能力框架》与欧盟/经合组织 AILit 框架为双坐标，以教育部系列指南为边界，构建 AI 素养课程的目标坐标系。">
+    <style>
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #111118;
+            --bg-card-hover: #161620;
+            --accent: #00d4aa;
+            --accent-light: #33e0bf;
+            --text: #ffffff;
+            --text-muted: #9ca3af;
+            --text-dim: #6b7280;
+            --border: rgba(255,255,255,0.06);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.8;
+        }
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            height: 64px; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            background: rgba(10,10,15,0.88); backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .navbar a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; font-weight: 500; }
+        .navbar a:hover { color: var(--accent); }
+        .navbar .logo img { height: 40px; width: auto; opacity: 0.95; }
+        .back { display: inline-flex; align-items: center; gap: 0.4rem; }
+
+        .page { max-width: 860px; margin: 0 auto; padding: 120px 1.5rem 4rem; }
+        .kicker { color: var(--accent); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.25em; text-align: center; margin-bottom: 0.75rem; }
+        h1 { text-align: center; font-size: 2rem; margin-bottom: 0.5rem; }
+        .orgs { text-align: center; color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.75rem; }
+        .tagline { text-align: center; color: var(--text-dim); font-size: 0.95rem; margin-bottom: 3rem; }
+
+        .block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 1.5rem;
+        }
+        .block-head { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+        .block-head svg { width: 26px; height: 26px; stroke: var(--accent); flex-shrink: 0; }
+        .block-head h2 { font-size: 1.15rem; letter-spacing: 0.1em; }
+        .block p { color: #d1d5db; font-size: 0.96rem; margin-bottom: 0.9rem; }
+        .block p:last-child { margin-bottom: 0; }
+        .block ul { margin: 0 0 0.9rem 1.2rem; color: #d1d5db; font-size: 0.96rem; }
+        .block ul:last-child { margin-bottom: 0; }
+        .block li { margin-bottom: 0.5rem; }
+        .block li:last-child { margin-bottom: 0; }
+        .block li::marker { color: var(--accent); }
+
+        .ref-item { margin-bottom: 1.15rem; }
+        .ref-item:last-child { margin-bottom: 0; }
+        .ref-item .rt { font-weight: 600; font-size: 0.98rem; color: var(--text); }
+        .ref-item .rt a { color: var(--text); text-decoration: none; border-bottom: 1px dashed rgba(255,255,255,0.25); }
+        .ref-item .rt a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+        .ref-item .rs a { color: var(--accent); text-decoration: none; border-bottom: 1px dashed rgba(0,212,170,0.4); }
+        .ref-item .rs { color: var(--text-muted); font-size: 0.84rem; margin-top: 0.2rem; }
+
+        .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+        .chip {
+            display: inline-block; padding: 0.32rem 0.85rem;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border); border-radius: 999px;
+            font-size: 0.8rem; color: var(--text-muted);
+        }
+        a.chip { color: var(--accent); text-decoration: none; }
+        a.chip:hover { background: rgba(0,212,170,0.12); }
+
+        .gap {
+            border-left: 2px solid var(--accent);
+            padding: 0.6rem 0 0.6rem 1rem;
+            color: var(--text-muted); font-size: 0.92rem;
+        }
+        .gap strong { color: var(--text); font-weight: 600; }
+
+        .pager { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; }
+        .pager a {
+            flex: 1; max-width: 48%;
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px;
+            padding: 1rem 1.25rem; color: var(--text); text-decoration: none; font-size: 0.92rem;
+            transition: background .2s;
+        }
+        .pager a:hover { background: var(--bg-card-hover); }
+        .pager a span { display: block; color: var(--text-dim); font-size: 0.75rem; margin-bottom: 0.2rem; }
+        .pager .next { text-align: right; }
+        .footer { text-align: center; color: var(--text-dim); font-size: 0.8rem; margin-top: 4rem; }
+
+        @media (max-width: 640px) {
+            .page { padding-top: 100px; }
+            .block { padding: 1.25rem 1.25rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a class="logo" href="../index.html"><img src="../logo-nav.png" alt="Vivaquest"></a>
+        <a class="back" href="../index.html#foundations">← 返回首页 · 博采众长</a>
+    </nav>
+
+    <main class="page">
+        <div class="kicker">博采众长 · 第 一 层</div>
+        <h1>标准框架</h1>
+        <div class="orgs">UNESCO · OECD · 教育部 等</div>
+        <div class="tagline">全球双坐标 × 本土边界</div>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                <h2>参 考</h2>
+            </div>
+            <div class="ref-item">
+                <div class="rt"><a href="https://www.unesco.org" target="_blank" rel="noopener">《学生人工智能能力框架》（2024）· 联合国教科文组织 UNESCO</a></div>
+                <div class="rs">全球第一套学生 AI 能力框架：四维 12 项能力，「理解—应用—创造」三级进阶。课程主坐标。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://www.unesco.org" target="_blank" rel="noopener">《教师人工智能能力框架》（2024）· UNESCO</a></div>
+                <div class="rs">教师端能力对齐参照。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://ailiteracyframework.org" target="_blank" rel="noopener">AILit《中小学 AI 素养框架》（2026）· 欧盟委员会 × 经合组织（OECD）</a></div>
+                <div class="rs">唯一与 UNESCO 框架正面对标的国际文件：四领域 19 项能力、三级进阶期望，CC BY 4.0 开放授权。第二坐标。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://www.oecd.org/en/about/projects/pisa-2029-media-and-artificial-intelligence-literacy.html" target="_blank" rel="noopener">PISA 2029 MAIL 测评框架 · OECD</a></div>
+                <div class="rs">「媒体与人工智能素养」进入 PISA 创新领域——素养一旦进入 PISA，各国课程将随之调整。</div>
+            </div>            <div class="ref-item">
+                <div class="rt"><a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">《人工智能法案》第 4 条（2025 年施行）· 欧盟</a></div>
+                <div class="rs">对学校（AI 部署者）与企业（提供者）施以法定 AI 素养义务——目前唯一有合规约束力的国际文本。</div>
+            </div>            <div class="ref-item">
+                <div class="rt">《中小学人工智能通识教育指南》等四份文件 · 中国教育部</div>
+                <div class="rs">《通识教育指南》、教技〔2023〕8 号、《生成式人工智能使用指南（2025 年版）》、《义务教育信息科技课程标准（2022 年版）》——划定目标边界与学段定位。</div>
+            </div>            <div class="ref-item">
+                <div class="rt">《教学中 AI 及数据使用伦理指南》（2022）· 欧盟</div>
+                <div class="rs">课堂 AI 使用伦理清单，配套参照。</div>
+            </div>            <div class="ref-item">
+                <div class="rt">DigComp 3.0（2025）· 欧盟</div>
+                <div class="rs">数字能力框架新版，AI 相关能力大幅扩充，配套参照。</div>
+            </div>
+        </section>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                <h2>吸 纳</h2>
+            </div>
+            <ul>
+                <li>UNESCO 四维 12 项能力 ＋「理解—应用—创造」进阶 ＝ 课程目标主坐标</li>
+                <li>AILit 四领域 19 项能力 ＝ 对标参照，能力项与 UNESCO 一一映射，校准五层深度轴</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <div class="block-head">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                <h2>调 整</h2>
+            </div>
+            <ul>
+                <li>UNESCO「AI 伦理」× 教育部学段要求 → 小学段落实为「识别深伪、保护隐私」</li>
+                <li>AILit「管理 AI」领域 → 对应「应用」层「人机分工决策」行为标准</li>
+                <li>全部课程目标与学段边界，按教育部四份文件执行</li>
+            </ul>
+        </section>
+
+        <div class="pager">
+            <a href="assessment.html"><span>← 上一层</span>评估机制</a>
+            <a class="next" href="architecture.html"><span>下一层 →</span>知识结构</a>
+        </div>
+
+        <div class="footer">维拓（Viva Quest）· 成都高远动量教育科技有限公司</div>
+    </main>
+</body>
+</html>

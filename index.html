@@ -677,6 +677,130 @@
             60% { transform: translateX(-50%) translateY(-5px); }
         }
 
+        /* ===== 学术底座 · 蜂窝星图 ===== */
+        .foundations-section { background: #08080c; }
+
+        .hex-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 3rem;
+            user-select: none;
+        }
+
+        .hex-row { display: flex; gap: 10px; }
+        .hex-row + .hex-row { margin-top: calc(var(--hex-h) * -0.245); }
+
+        .hex {
+            --hex-w: 196px;
+            --hex-h: calc(var(--hex-w) * 1.1547);
+            width: var(--hex-w);
+            height: var(--hex-h);
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 13%;
+            cursor: pointer;
+            transition: filter .3s, background .3s;
+        }
+
+        .hex .hex-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+
+        .hex .hex-name {
+            font-size: 0.92rem;
+            font-weight: 600;
+            line-height: 1.35;
+            white-space: nowrap;
+        }
+
+        .hex .hex-orgs {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            margin-top: 0.35rem;
+            white-space: nowrap;
+            letter-spacing: 0.02em;
+        }
+
+        .hex:hover { background: var(--bg-card-hover); filter: drop-shadow(0 0 14px rgba(0,212,170,0.35)); }
+        .hex.active { background: rgba(0,212,170,0.13); filter: drop-shadow(0 0 16px rgba(0,212,170,0.45)); }
+
+        .hex-hero {
+            background: rgba(0,212,170,0.07);
+            cursor: default;
+            filter: drop-shadow(0 0 18px rgba(0,212,170,0.25));
+        }
+
+        .hex-hero .hex-name { color: var(--accent); font-size: 1.05rem; white-space: nowrap; }
+        .hex-hero .hex-sub { font-size: 0.68rem; color: var(--text-muted); margin-top: 0.3rem; white-space: nowrap; }
+        .hex-hero:hover { filter: drop-shadow(0 0 18px rgba(0,212,170,0.25)); }
+
+        .hex-detail {
+            max-width: 780px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 2.25rem 2.5rem;
+            transition: opacity .25s;
+        }
+
+        .hex-detail.fade { opacity: 0; }
+
+        .hex-detail h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .hex-detail h3 .d-num { color: var(--accent); font-size: 0.9rem; }
+
+        .hex-essence { color: var(--text-muted); line-height: 1.75; margin-bottom: 1.25rem; }
+
+        .hex-sources { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem; }
+
+        .hex-src {
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .hex-craft {
+            border-left: 3px solid var(--accent);
+            padding: 0.4rem 0 0.4rem 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .hex-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .hex-link:hover { color: var(--accent-light); }
+
+        .hex-actions { display: flex; gap: 1.75rem; flex-wrap: wrap; }
+
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -706,6 +830,13 @@
             .contact-grid {
                 grid-template-columns: 1fr;
             }
+
+            .hex { --hex-w: 124px; padding: 0 18%; }
+            .hex .hex-name { font-size: 0.78rem; }
+            .hex .hex-num { font-size: 0.6rem; }
+            .hex .hex-sub { font-size: 0.6rem; }
+            .hex-detail { padding: 1.5rem 1.25rem; }
+            .hex-row { gap: 6px; }
 
             .section { padding: 4rem 1.5rem; }
             .section-header { margin-bottom: 2.5rem; }
@@ -859,6 +990,36 @@
         </div>
     </section>
 
+    <!-- 学术底座 · 蜂窝星图 -->
+    <section id="foundations" class="section foundations-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="found_label">博采众长</div>
+            <h2 class="section-title" data-i18n="found_title">全球智慧，本土构筑</h2>
+            <p class="section-desc" data-i18n="found_desc">萃取名校、国际组织与行业巨擘知识精华，纳入我国技术生态与文化，<br>重构设计，只为恰到好处。</p>
+        </div>
+
+        <div class="hex-wrap reveal">
+            <div class="hex-row">
+                <div class="hex" data-f="1"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+                <div class="hex" data-f="2"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+            </div>
+            <div class="hex-row">
+                <div class="hex" data-f="3"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+                <div class="hex hex-hero">
+                    <div class="hex-name" data-i18n="found_center">Viva 体系</div>
+                </div>
+                <div class="hex" data-f="4"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+            </div>
+            <div class="hex-row">
+                <div class="hex" data-f="5"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+                <div class="hex" data-f="6"><div class="hex-name"></div><div class="hex-orgs"></div></div>
+            </div>
+        </div>
+
+        <div class="hex-detail reveal" id="hexDetail"></div>
+        <p style="text-align:center; color: var(--text-dim); font-size: 0.82rem; margin-top: 1.25rem;" data-i18n="found_hint">点击任意一层，查看来源与我们的做法</p>
+    </section>
+
     <!-- 关于我们 -->
     <section id="about" class="section">
         <div class="about-grid">
@@ -958,6 +1119,12 @@
                 services_label: "Programs",
                 services_title: "服务/项目 矩阵",
                 services_desc: "从启蒙素养，到项目研究，紧扣AI发展脉搏",
+                found_label: "博采众长",
+                found_title: "全球智慧，本土构筑",
+                found_desc: "萃取名校、国际组织与行业巨擘知识精华，纳入我国技术生态与文化，<br>重构设计，只为恰到好处。",
+                found_hint: "点击任意一层，查看来源与我们的做法",
+                found_center: "Viva 体系",
+                found_center_sub: "六层底座 · 博采众长",
                 s1_name: "AI素养项目",
                 s1_d1: "网络课程",
                 s1_d2: "AI基础知识与全景概论",
@@ -1028,6 +1195,12 @@
                 services_label: "Programs",
                 services_title: "Programs & Services",
                 services_desc: "From foundational literacy to research projects, staying in sync with the pulse of AI development.",
+                found_label: "博采众长 · Global Wisdom",
+                found_title: "Global Wisdom, Locally Crafted",
+                found_desc: "Distilling the best of leading universities, international organizations and industry giants — rebuilt into China's tech ecosystem and culture, designed to be just right.",
+                found_hint: "Click any layer to see its sources and our craft",
+                found_center: "Viva System",
+                found_center_sub: "Six foundations, drawn from the best",
                 s1_name: "AI Literacy Program",
                 s1_d1: "Online Courses",
                 s1_d2: "AI Fundamentals & Panoramic Overview",
@@ -1088,6 +1261,158 @@
 
         let currentLang = 'zh';
 
+        // 学术底座 · 六层数据（蜂窝星图）：name  hex 显示；essence/craft 详情；sources 来源 chips
+        const FOUNDATIONS = {
+            1: {
+                name: { zh: "标准框架", en: "Frameworks" },
+                essence: {
+                    zh: "全球双坐标 × 本土边界——UNESCO 学生 AI 能力框架与欧盟/经合组织 AILit 框架定坐标，教育部系列指南划定目标边界与学段定位。",
+                    en: "Global coordinates with local boundaries — UNESCO's AI Competency Framework for Students and the EC/OECD AILit Framework set the coordinates; China's MOE guidelines define the objectives and stage placement."
+                },
+                sources: {
+                    zh: ["UNESCO《学生人工智能能力框架》", "AILit 框架（欧盟 × OECD，2026）", "PISA 2029 MAIL 测评框架", "欧盟《人工智能法案》第 4 条", "教育部《中小学人工智能通识教育指南》", "《中小学生成式人工智能使用指南（2025）》"],
+                    en: ["UNESCO AI Competency Framework for Students", "AILit Framework (EC & OECD, 2026)", "PISA 2029 MAIL Assessment Framework", "EU AI Act, Article 4", "MOE Guidelines for AI General Education", "MOE Generative AI Usage Guidelines (2025)"]
+                },
+                craft: {
+                    zh: "国际框架给坐标，教育部指南给边界——两者的映射关系本身，就是我们的培养目标。",
+                    en: "International frameworks provide the coordinates; MOE guidelines the boundaries — the mapping itself is our educational objective."
+                }
+            },
+            2: {
+                name: { zh: "知识结构", en: "Architecture" },
+                essence: {
+                    zh: "AI4K12「五大理念」为课程脊柱，UNESCO「理解—应用—创造」三阶进阶展开为我们独有的五层深度轴。",
+                    en: "AI4K12's Big Five Ideas form the curricular spine; UNESCO's Understand–Apply–Create progression is expanded into our signature five-level depth axis."
+                },
+                sources: {
+                    zh: ["AI4K12 Big Five Ideas", "UNESCO 进阶：理解—应用—创造", "44 课详案 · K12 ABC 混合版大纲"],
+                    en: ["AI4K12 Big Five Ideas", "UNESCO progression: Understand–Apply–Create", "44-lesson detailed plans · K12 ABC syllabus"]
+                },
+                craft: {
+                    zh: "三阶展开为五层（认识 / 知识 / 掌握 / 应用 / 研发）——「吸收」而非「照抄」的第一个实证。",
+                    en: "Three phases expanded into five levels (Awareness / Knowledge / Mastery / Application / R&D) — the first proof that we absorb rather than copy."
+                }
+            },
+            3: {
+                name: { zh: "内容素材", en: "Materials" },
+                essence: {
+                    zh: "素养轨 44 课详案＋技术轨混合大纲——源自 MIT、斯坦福等成熟课程体系的逐课拆解与重写。",
+                    en: "A 44-lesson literacy track plus a technical syllabus — deconstructed and rewritten lesson by lesson from proven MIT- and Stanford-lineage curricula."
+                },
+                sources: {
+                    zh: ["MIT Day of AI", "斯坦福 CRAFT", "DAILy 课程", "AI Education for Kids", "Experience AI", "Elements of AI", "Machine Learning for Kids"],
+                    en: ["MIT Day of AI", "Stanford CRAFT", "DAILy curriculum", "AI Education for Kids", "Experience AI", "Elements of AI", "Machine Learning for Kids"]
+                },
+                craft: {
+                    zh: "翻译即重写——案例替换为中国语境，不符合国情的议题按规范处理，工具链替换为国产可用工具。",
+                    en: "Translation means rewriting — cases localized to the Chinese context, non-compliant topics handled per MOE norms, toolchain swapped for domestically available tools."
+                }
+            },
+            4: {
+                name: { zh: "教学方法", en: "Pedagogy" },
+                essence: {
+                    zh: "PBL——每课一个作品：从项目制学习、不插电活动到交互式可视化练习，把全球验证过的教法换进中国课堂。",
+                    en: "PBL — one project per lesson: project-based learning, unplugged activities and interactive visualization, all proven globally and rebuilt for Chinese classrooms."
+                },
+                sources: {
+                    zh: ["Experience AI 项目制理念", "AI4K12 不插电活动", "Google ML 速成课程交互练习", "短视频化课时改造"],
+                    en: ["Experience AI project-based approach", "AI4K12 unplugged activities", "Google ML Crash Course interactivity", "Short-video lesson format"]
+                },
+                craft: {
+                    zh: "拿形式、换内容——教学法借理念与形态，内容全部自产。",
+                    en: "Borrow the form, replace the content — pedagogy takes only ideas and formats; all content is our own."
+                }
+            },
+            5: {
+                name: { zh: "资源平台", en: "Resources" },
+                essence: {
+                    zh: "全球最好的免费课直接作为进阶资源挂进图谱：高校开放课＋大厂官方学堂，全部链接直达官方页面。",
+                    en: "The world's best free courses wired directly into our knowledge graph — university open courses and official big-tech academies, all deep-linked to their official pages."
+                },
+                sources: {
+                    zh: ["MIT OCW · UAI", "斯坦福 CS229 / CS221 / CS224n", "Anthropic / OpenAI / Google Academy", "飞桨 AI Studio · 阿里云 · 华为云"],
+                    en: ["MIT OCW · UAI", "Stanford CS229 / CS221 / CS224n", "Anthropic / OpenAI / Google Academy", "PaddlePaddle · Aliyun · Huawei Cloud academies"]
+                },
+                craft: {
+                    zh: "纯链接导流、零搬运；学分课接口预留——只做推荐与销售，课程由大学提供。",
+                    en: "Link-and-referral only, zero republishing; university credit-course interfaces reserved — we recommend and sell, universities teach."
+                }
+            },
+            6: {
+                name: { zh: "评估机制", en: "Assessment" },
+                essence: {
+                    zh: "图谱点亮度即学习进度，四级凭证对标大厂认证形态，出口对接教育部白名单赛事与综合素质评价。",
+                    en: "Graph-lit nodes equal learning progress; a four-tier credential system follows big-tech certification models; exits connect to MOE-sanctioned competitions and comprehensive student evaluation."
+                },
+                sources: {
+                    zh: ["大厂学堂徽章认证形态", "UNESCO 框架评估方法", "教育部白名单赛事体系"],
+                    en: ["Big-tech academy badge systems", "UNESCO framework assessment methods", "MOE-sanctioned competition list"]
+                },
+                craft: {
+                    zh: "链上只存哈希、不存个人信息——未成年人保护的红线设计。",
+                    en: "On-chain records store only hashes, never personal data — a red-line design for minors' protection."
+                }
+            }
+        };
+        const HEX_ORGS = {
+            1: { zh: "UNESCO · OECD · 教育部 等", en: "UNESCO · OECD · MOE, etc." },
+            2: { zh: "Big 5 ideas · 卡耐基梅隆等", en: "Big 5 Ideas · CMU, etc." },
+            3: { zh: "麻省理工 · 斯坦福 等", en: "MIT · Stanford, etc." },
+            4: { zh: "PBL · Experience AI · AI4K12 等", en: "PBL · Experience AI · AI4K12, etc." },
+            5: { zh: "Google · Minecraft · Scratch 等", en: "Google · Minecraft · Scratch, etc." },
+            6: { zh: "项目 · 徽章 · 学分 · 证书等", en: "Projects · Badges · Credits · Certificates, etc." }
+        };
+        const FOUND_SLUG = {
+            1: "frameworks", 2: "architecture", 3: "materials",
+            4: "pedagogy", 5: "resources", 6: "assessment"
+        };
+        const FOUND_MORE = { zh: "了解更多", en: "Learn more" };
+        const FOUND_LINK = {
+            zh: "在 AI 星云中查看",
+            en: "Explore in the AI Nebula"
+        };
+        let foundIdx = 1;
+        let foundTimer = null;
+
+        function renderFoundations() {
+            const lang = currentLang;
+            document.querySelectorAll('.hex[data-f]').forEach(function (el) {
+                const d = FOUNDATIONS[el.dataset.f];
+                el.querySelector('.hex-name').textContent = d.name[lang];
+                el.querySelector('.hex-orgs').textContent = HEX_ORGS[el.dataset.f][lang];
+                el.classList.toggle('active', +el.dataset.f === foundIdx);
+            });
+            const box = document.getElementById('hexDetail');
+            const d = FOUNDATIONS[foundIdx];
+            box.classList.add('fade');
+            setTimeout(function () {
+                if (!d) return;
+                box.innerHTML =
+                    '<h3>' + d.name[lang] + '</h3>' +
+                    '<p class="hex-essence">' + d.essence[lang] + '</p>' +
+                    '<div class="hex-sources">' + d.sources[lang].map(function (s) { return '<span class="hex-src">' + s + '</span>'; }).join('') + '</div>' +
+                    '<div class="hex-craft">' + d.craft[lang] + '</div>' +
+                    '<div class="hex-actions">' +
+                    '<a class="hex-link" href="/foundations/' + FOUND_SLUG[foundIdx] + '.html">✦ ' + FOUND_MORE[lang] + ' →</a>' +
+                    '<a class="hex-link" href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" rel="noopener">✦ ' + FOUND_LINK[lang] + ' →</a>' +
+                    '</div>';
+                box.classList.remove('fade');
+            }, 180);
+        }
+
+        function selectFoundation(i, byUser) {
+            foundIdx = i;
+            if (byUser && foundTimer) { clearInterval(foundTimer); foundTimer = null; }
+            renderFoundations();
+        }
+
+        document.querySelectorAll('.hex[data-f]').forEach(function (el) {
+            el.addEventListener('click', function () { selectFoundation(+el.dataset.f, true); });
+        });
+        foundTimer = setInterval(function () { selectFoundation(foundIdx % 6 + 1, false); }, 6000);
+        renderFoundations();
+
+
         function setLang(lang) {
             currentLang = lang;
             document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
@@ -1096,7 +1421,8 @@
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (content[lang][key]) {
-                    el.textContent = content[lang][key];
+                    if (key === 'found_desc') { el.innerHTML = content[lang][key]; }
+                    else { el.textContent = content[lang][key]; }
                 }
             });
 
@@ -1121,6 +1447,7 @@
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             const gf = document.getElementById('galaxyFrame');
             if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + lang;
+            renderFoundations();
 
 
         }
