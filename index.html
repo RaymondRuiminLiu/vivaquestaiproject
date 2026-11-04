@@ -860,7 +860,7 @@
             </a>
             <div class="nav-links">
                 <a href="#services" data-i18n="nav_services">服务</a>
-                <a href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" data-i18n="nav_galaxy">✦ AI星云</a>
+                <a href="https://vivaquest.org/nebula/" target="_blank" data-i18n="nav_galaxy">✦ 维拓AI星云</a>
                 <a href="#about" data-i18n="nav_about">关于</a>
                 <a href="#contact" data-i18n="nav_contact">联系</a>
                 <a href="#contact" class="nav-cta" data-i18n="nav_join">加入我们</a>
@@ -887,7 +887,7 @@
         </h1>
         <div class="hero-buttons">
             <a href="#services" class="btn btn-primary" data-i18n="hero_cta_primary">课程与项目</a>
-            <a href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" class="btn btn-galaxy" data-i18n="hero_cta_galaxy">✦ 进入 AI 星云</a>
+            <a href="https://vivaquest.org/nebula/" target="_blank" class="btn btn-galaxy" data-i18n="hero_cta_galaxy">✦ 进入维拓AI星云</a>
             <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_secondary">加入我们</a>
         </div>
         <div class="scroll-indicator">↓</div>
@@ -1107,14 +1107,14 @@
         const content = {
             zh: {
                 nav_services: "服务",
-                nav_galaxy: "✦ AI星云",
+                nav_galaxy: "✦ 维拓AI星云",
                 nav_about: "关于",
                 nav_contact: "联系",
                 nav_join: "加入我们",
                 hero_line1: "学用 AI 智创未来",
                 hero_line2: "Learn AI. Harness AI. Shape the Future.",
                 hero_cta_primary: "课程与项目",
-                hero_cta_galaxy: "✦ 进入 AI 星云",
+                hero_cta_galaxy: "✦ 进入维拓AI星云",
                 hero_cta_secondary: "加入我们",
                 services_label: "Programs",
                 services_title: "服务/项目 矩阵",
@@ -1368,7 +1368,7 @@
         };
         const FOUND_MORE = { zh: "了解更多", en: "Learn more" };
         const FOUND_LINK = {
-            zh: "在 AI 星云中查看",
+            zh: "在维拓AI星云中查看",
             en: "Explore in the AI Nebula"
         };
         let foundIdx = 1;
@@ -1394,7 +1394,7 @@
                     '<div class="hex-craft">' + d.craft[lang] + '</div>' +
                     '<div class="hex-actions">' +
                     '<a class="hex-link" href="/foundations/' + FOUND_SLUG[foundIdx] + '.html">✦ ' + FOUND_MORE[lang] + ' →</a>' +
-                    '<a class="hex-link" href="https://waxc44h3ahzns.ok.kimi.link/" target="_blank" rel="noopener">✦ ' + FOUND_LINK[lang] + ' →</a>' +
+                    '<a class="hex-link" href="https://vivaquest.org/nebula/" target="_blank" rel="noopener">✦ ' + FOUND_LINK[lang] + ' →</a>' +
                     '</div>';
                 box.classList.remove('fade');
             }, 180);
@@ -1446,7 +1446,7 @@
             document.getElementById('btn-zh').classList.toggle('active', lang === 'zh');
             document.getElementById('btn-en').classList.toggle('active', lang === 'en');
             const gf = document.getElementById('galaxyFrame');
-            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + lang;
+            if (gf) gf.src = 'https://vivaquest.org/nebula/?embed=bg&lang=' + lang;
             renderFoundations();
 
 
@@ -1455,7 +1455,7 @@
         // 初始化星云背景：全设备加载（微信内由星云页自动降级为 2D 兼容模式）
         (function initGalaxyBg() {
             const gf = document.getElementById('galaxyFrame');
-            if (gf) gf.src = 'https://waxc44h3ahzns.ok.kimi.link/?embed=bg&lang=' + currentLang;
+            if (gf) gf.src = 'https://vivaquest.org/nebula/?embed=bg&lang=' + currentLang;
         })();
 
         // 导航栏滚动效果
