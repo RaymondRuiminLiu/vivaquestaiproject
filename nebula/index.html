@@ -297,7 +297,7 @@
     <div id="ship" aria-hidden="true"><img src="logo.png" alt=""></div>
     <canvas id="cv"></canvas>
     <div class="kg-hint" id="kgHint">左键拖拽旋转 · 滚轮缩放 · 点击节点看详解</div>
-    <div class="kg-badge" id="kgBadge">3D 力导向布局 · 实时模拟</div>
+    <div class="kg-badge" id="kgBadge">标准渲染 · 全设备兼容</div>
     <div class="kg-hud" id="hud" hidden></div>
     <div class="kg-flash"></div>
     <div class="kg-detail" id="detail" hidden>
@@ -316,7 +316,7 @@
   <div class="kg-controls">
     <button class="kimi-button kimi-button--secondary" id="btnRotate">暂停旋转</button>
     <button class="kimi-button kimi-button--ghost" id="btnReset">复位视角</button>
-    <button class="kimi-button kimi-button--ghost" id="btn2d" title="WebGL 黑屏时的兜底模式">2D 模式</button>
+    <button class="kimi-button kimi-button--ghost" id="btn2d" title="切换到 GPU 辉光引擎：大气雾带＋节点光晕（部分设备可能黑屏，再点一次可切回）">辉光模式（实验）</button>
     <button class="kimi-button kimi-button--ghost" id="btnLabel" title="切换标签密度">标签:自动</button>
     <button class="kimi-button kimi-button--primary" id="btnStudent">学生视角</button>
     <span class="kg-stat" id="stat"></span>
@@ -547,8 +547,8 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       sub: "",
       placeholder: "搜索知识点 / 课程 / 人物，如：图灵测试",
       hint: "左键拖拽旋转 · 滚轮缩放 · 点击节点看详解",
-      badge: "3D 力导向布局 · 实时模拟",
-      badgeCanvas: "Canvas 引擎 · 兼容模式",
+      badge: "辉光引擎 · 实时模拟",
+      badgeCanvas: "标准渲染 · 全设备兼容",
       rotatePause: "暂停旋转", rotatePlay: "继续旋转",
       reset: "复位视角", studentOn: "学生视角", studentOff: "退出学生视角",
       foot: "",
@@ -563,6 +563,9 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       stages: ["感知", "理解", "概念", "结构", "操作", "调优", "迁移", "创造", "研究", "前沿"],
       ringTitle: "技能环",
       labelAuto: "标签:自动", labelAll: "标签:全部", labelMin: "标签:悬停",
+      btnGlow: "辉光模式（实验）", btnStd: "标准模式",
+      titleGlow: "切换到 GPU 辉光引擎：大气雾带＋节点光晕（部分设备可能黑屏，再点一次可切回）",
+      titleStd: "切回标准渲染模式（所有设备稳定）",
       legendPath: "金线 = 学习路径",
       btnDone: "✓ 标记完成", btnUndo: "↩ 取消完成",
       layers: ["认识层", "知识层", "掌握层", "应用层", "研发层"],
@@ -583,8 +586,8 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       sub: "",
       placeholder: "Search topics, courses, people, e.g. Turing Test",
       hint: "Drag to rotate · Scroll to zoom · Click a node for details",
-      badge: "3D force-directed layout · live simulation",
-      badgeCanvas: "Canvas engine · compatibility mode",
+      badge: "Glow engine · live simulation",
+      badgeCanvas: "Standard render · works everywhere",
       rotatePause: "Pause rotation", rotatePlay: "Resume rotation",
       reset: "Reset view", studentOn: "Student view", studentOff: "Exit student view",
       foot: "",
@@ -599,6 +602,9 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       stages: ["Sensing", "Understanding", "Concepts", "Structure", "Operation", "Tuning", "Transfer", "Creation", "Research", "Frontier"],
       ringTitle: "Skill Ring",
       labelAuto: "Labels: Auto", labelAll: "Labels: All", labelMin: "Labels: Hover",
+      btnGlow: "Glow mode (beta)", btnStd: "Standard mode",
+      titleGlow: "Switch to the GPU glow engine: atmosphere bands + node halos (may show black on some devices — click again to switch back)",
+      titleStd: "Back to the standard renderer (stable on all devices)",
       legendPath: "Gold line = learning path",
       btnDone: "✓ Mark complete", btnUndo: "↩ Undo",
       layers: ["Awareness", "Knowledge", "Mastery", "Application", "R&D"],
@@ -2024,8 +2030,8 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
   var btn2d = document.getElementById("btn2d");
   function sync2dBtn() {
     var web = window.__kgEngine === "webgl";
-    btn2d.textContent = web ? "2D 模式" : "3D 模式";
-    btn2d.title = web ? "WebGL 黑屏时的兜底模式：切换到 Canvas 2D" : "切换到 WebGL 3D 引擎（部分设备可能黑屏）";
+    btn2d.textContent = T(web ? "btnStd" : "btnGlow");
+    btn2d.title = T(web ? "titleStd" : "titleGlow");
   }
   btn2d.addEventListener("click", function () {
     if (window.__kgEngine === "webgl") {
@@ -2039,7 +2045,7 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       if (window.__g) { window.__kgEngine = "webgl"; }
       else { try { startWeb(); } catch (e3) { window.__kgForceCanvas(); sync2dBtn(); return; } }
       var bd = document.querySelector(".kg-badge");
-      if (bd) bd.textContent = (UI[LANG] && UI[LANG].badge) || "3D 力导向布局 · 实时模拟";
+      if (bd) bd.textContent = (UI[LANG] && UI[LANG].badge) || "辉光引擎 · 实时模拟";
     }
     sync2dBtn();
   });
@@ -3127,7 +3133,7 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
     window.__kgEngine = "webgl";
 
     /* 黑屏看门狗：3D 启动后 4s / 9s 检查 GL 错误标志（着色器失败、程序无效、上下文丢失），
-       命中则自动切 Canvas 兼容模式并记住选择；纯合成黑屏无法从 JS 检测，可用底栏「2D 模式」手动切换 */
+       命中则自动切标准渲染并记住选择；纯合成黑屏无法从 JS 检测，可用底栏「标准模式」手动切换 */
     [4000, 9000].forEach(function (delay) {
       setTimeout(function () {
         try {
@@ -3145,7 +3151,7 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
   function startCanvas() {
     document.getElementById("cv").style.display = "block";
     document.getElementById("graph").style.visibility = "hidden"; /* 隐藏 WebGL 层 */
-    document.querySelector(".kg-badge").textContent = (UI[LANG] && UI[LANG].badgeCanvas) || "Canvas 引擎"; /* 不能用 T()：本函数内有局部变量 T 遮蔽 */
+    document.querySelector(".kg-badge").textContent = (UI[LANG] && UI[LANG].badgeCanvas) || "标准渲染 · 全设备兼容"; /* 不能用 T()：本函数内有局部变量 T 遮蔽 */
 
     var canvas = document.getElementById("cv");
     var ctx = canvas.getContext("2d");
@@ -3541,7 +3547,7 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       else document.body.classList.add("kg-full");
     } catch (e0c) {}
     /* 引擎选择：默认 Canvas 2D——在部分真实 GPU 上 WebGL 缓冲有内容但合成黑屏，
-       且此类故障无法从 JS 检测；3D 改为显式 opt-in（底栏「3D 模式」切换），选择持久化。
+       且此类故障无法从 JS 检测；辉光引擎改为显式 opt-in（底栏「辉光模式（实验）」切换），选择持久化。
        微信/QQ 内嵌 WebView 一律 Canvas。 */
     var engineChoice = null;
     try { engineChoice = localStorage.getItem("kg-engine"); } catch (e0) {}
