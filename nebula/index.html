@@ -316,7 +316,6 @@
   <div class="kg-controls">
     <button class="kimi-button kimi-button--secondary" id="btnRotate">暂停旋转</button>
     <button class="kimi-button kimi-button--ghost" id="btnReset">复位视角</button>
-    <button class="kimi-button kimi-button--ghost" id="btn2d" title="切换到 GPU 辉光引擎：大气雾带＋节点光晕（部分设备可能黑屏，再点一次可切回）">辉光模式（实验）</button>
     <button class="kimi-button kimi-button--ghost" id="btnLabel" title="切换标签密度">标签:自动</button>
     <button class="kimi-button kimi-button--primary" id="btnStudent">学生视角</button>
     <span class="kg-stat" id="stat"></span>
@@ -547,7 +546,6 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       sub: "",
       placeholder: "搜索知识点 / 课程 / 人物，如：图灵测试",
       hint: "左键拖拽旋转 · 滚轮缩放 · 点击节点看详解",
-      badge: "辉光引擎 · 实时模拟",
       badgeCanvas: "标准渲染 · 全设备兼容",
       rotatePause: "暂停旋转", rotatePlay: "继续旋转",
       reset: "复位视角", studentOn: "学生视角", studentOff: "退出学生视角",
@@ -563,9 +561,6 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       stages: ["感知", "理解", "概念", "结构", "操作", "调优", "迁移", "创造", "研究", "前沿"],
       ringTitle: "技能环",
       labelAuto: "标签:自动", labelAll: "标签:全部", labelMin: "标签:悬停",
-      btnGlow: "辉光模式（实验）", btnStd: "标准模式",
-      titleGlow: "切换到 GPU 辉光引擎：大气雾带＋节点光晕（部分设备可能黑屏，再点一次可切回）",
-      titleStd: "切回标准渲染模式（所有设备稳定）",
       legendPath: "金线 = 学习路径",
       btnDone: "✓ 标记完成", btnUndo: "↩ 取消完成",
       layers: ["认识层", "知识层", "掌握层", "应用层", "研发层"],
@@ -586,7 +581,6 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       sub: "",
       placeholder: "Search topics, courses, people, e.g. Turing Test",
       hint: "Drag to rotate · Scroll to zoom · Click a node for details",
-      badge: "Glow engine · live simulation",
       badgeCanvas: "Standard render · works everywhere",
       rotatePause: "Pause rotation", rotatePlay: "Resume rotation",
       reset: "Reset view", studentOn: "Student view", studentOff: "Exit student view",
@@ -602,9 +596,6 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       stages: ["Sensing", "Understanding", "Concepts", "Structure", "Operation", "Tuning", "Transfer", "Creation", "Research", "Frontier"],
       ringTitle: "Skill Ring",
       labelAuto: "Labels: Auto", labelAll: "Labels: All", labelMin: "Labels: Hover",
-      btnGlow: "Glow mode (beta)", btnStd: "Standard mode",
-      titleGlow: "Switch to the GPU glow engine: atmosphere bands + node halos (may show black on some devices — click again to switch back)",
-      titleStd: "Back to the standard renderer (stable on all devices)",
       legendPath: "Gold line = learning path",
       btnDone: "✓ Mark complete", btnUndo: "↩ Undo",
       layers: ["Awareness", "Knowledge", "Mastery", "Application", "R&D"],
@@ -1990,7 +1981,7 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
     document.getElementById("kgTitle").textContent = T("title");
     document.getElementById("kgSub").textContent = T("sub");
     document.getElementById("kgHint").textContent = T("hint");
-    document.getElementById("kgBadge").textContent = T(window.__kgEngine === "canvas" ? "badgeCanvas" : "badge");
+    document.getElementById("kgBadge").textContent = T("badgeCanvas");
     document.getElementById("kgFoot").innerHTML = T("foot");
     document.getElementById("hWhat").textContent = T("hWhat");
     document.getElementById("hWhy").textContent = T("hWhy");
@@ -2027,31 +2018,8 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
     syncLabelBtn();
     if (window.__kgLangRefresh) window.__kgLangRefresh();
   });
-  var btn2d = document.getElementById("btn2d");
-  function sync2dBtn() {
-    var web = window.__kgEngine === "webgl";
-    btn2d.textContent = T(web ? "btnStd" : "btnGlow");
-    btn2d.title = T(web ? "titleStd" : "titleGlow");
-  }
-  btn2d.addEventListener("click", function () {
-    if (window.__kgEngine === "webgl") {
-      if (window.__kgForceCanvas) window.__kgForceCanvas();
-      try { localStorage.setItem("kg-engine", "canvas"); } catch (e0) {}
-    } else {
-      /* 显式选择 3D，持久化；失败则回退 2D */
-      try { localStorage.setItem("kg-engine", "webgl"); } catch (e0) {}
-      document.getElementById("cv").style.display = "none";
-      document.getElementById("graph").style.visibility = "visible";
-      if (window.__g) { window.__kgEngine = "webgl"; }
-      else { try { startWeb(); } catch (e3) { window.__kgForceCanvas(); sync2dBtn(); return; } }
-      var bd = document.querySelector(".kg-badge");
-      if (bd) bd.textContent = (UI[LANG] && UI[LANG].badge) || "辉光引擎 · 实时模拟";
-    }
-    sync2dBtn();
-  });
-
-
-  /* ==================== WebGL 引擎（3d-force-graph） ==================== */
+  /* ==================== WebGL 辉光引擎（3d-force-graph）【已下线 2026-11-04】====================
+     保留备查，无任何调用入口：大气雾带在部分真实 GPU 上合成黑屏且无法从 JS 检测。
   function startWeb() {
     try {
     /* 拦截控制台 GL 错误：着色器编译失败 / 程序无效 / 上下文丢失，
@@ -3133,7 +3101,8 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
     window.__kgEngine = "webgl";
 
     /* 黑屏看门狗：3D 启动后 4s / 9s 检查 GL 错误标志（着色器失败、程序无效、上下文丢失），
-       命中则自动切标准渲染并记住选择；纯合成黑屏无法从 JS 检测，可用底栏「标准模式」手动切换 */
+       命中则自动切标准渲染并记住选择；纯合成黑屏无法从 JS 检测。
+       （辉光引擎已整体下线，本看门狗仅作保留代码的保险，实际不会触发） */
     [4000, 9000].forEach(function (delay) {
       setTimeout(function () {
         try {
@@ -3546,19 +3515,13 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
       else if (__embedMode === "bg") document.body.classList.add("kg-embed", "kg-bg");
       else document.body.classList.add("kg-full");
     } catch (e0c) {}
-    /* 引擎选择：默认 Canvas 2D——在部分真实 GPU 上 WebGL 缓冲有内容但合成黑屏，
-       且此类故障无法从 JS 检测；辉光引擎改为显式 opt-in（底栏「辉光模式（实验）」切换），选择持久化。
-       微信/QQ 内嵌 WebView 一律 Canvas。 */
-    var engineChoice = null;
-    try { engineChoice = localStorage.getItem("kg-engine"); } catch (e0) {}
-    var preferWeb = engineChoice === "webgl";
-    /* 微信/QQ 等内嵌 WebView：WebGL 上下文能创建但透明画布合成黑屏，
-       与其黑屏不如直接进 Canvas 兼容模式，并提示用系统浏览器打开 */
+    /* 引擎：仅保留 Canvas 标准渲染。WebGL 辉光引擎已于 2026-11-04 下线——
+       其大气雾带在部分真实 GPU 上缓冲有内容但合成黑屏，无法从 JS 检测，属残疾功能，不再提供入口。
+       下方 startWeb() 代码保留备查，无任何调用路径。 */
     var ua = navigator.userAgent || "";
     var embedded = /micromessenger|mqqbrowser|wechat/i.test(ua);
     try {
-      if (preferWeb && window.ForceGraph3D && window.THREE && webglOK() && !embedded) startWeb();
-      else startCanvas();
+      startCanvas();
     } catch (e1) {
       try { startCanvas(); } catch (e2) {
         var stEl = document.getElementById("stat");
@@ -3567,10 +3530,9 @@ Wu.readability=function(t,e){var n=Wu(t),i=Wu(e);return(Math.max(n.getLuminance(
     }
     updateStat();
     applyLang();
-    sync2dBtn();
     if (embedded) {
       var sub = document.getElementById("kgSub");
-      if (sub) sub.textContent += " · 当前为微信/QQ 内置浏览器兼容模式：点右上角「···」→「在浏览器打开」体验完整 3D";
+      if (sub) sub.textContent += " · 当前为微信/QQ 内置浏览器兼容模式：如显示异常，点右上角「···」→「在浏览器打开」";
     }
   })();
 
