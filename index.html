@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>学用 AI 智创未来 | Vivaquest 维拓</title>
-    <meta name="description" content="Vivaquest维拓——专注青少年AI素养教育，从启蒙到科研实战。">
+    <meta name="description" content="维拓 VIVA QUEST——AI 能力成长体系的构建者：知识、项目、星云三体系，五级成长路径 L0–L4，开放知识平台维拓AI星云。">
     <style>
         :root {
             --bg-dark: #0a0a0f;
@@ -812,9 +812,271 @@
             transform: translateY(0);
         }
 
+        /* ===== 成长路径 L0–L4 ===== */
+        .journey-section { background: #08080c; }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1rem;
+        }
+
+        .step {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.5rem 1.1rem;
+            position: relative;
+        }
+
+        .step .lv {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+        }
+
+        .step h4 { font-size: 1.05rem; margin: 0.35rem 0 0.1rem; }
+
+        .step .nm {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .step p {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 0.55rem;
+            line-height: 1.6;
+        }
+
+        .step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -0.72rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-top: 2px solid var(--accent);
+            border-right: 2px solid var(--accent);
+            transform: translateY(-50%) rotate(45deg);
+            opacity: 0.55;
+        }
+
+        .step:last-child::after { display: none; }
+
+        .journey-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-top: 1.75rem;
+        }
+
+        /* ===== 学做成 ===== */
+        .loop-section { background: #08080c; }
+
+        .flow {
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .fnode {
+            flex: 1;
+            min-width: 170px;
+            max-width: 230px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.6rem 1.1rem;
+            text-align: center;
+        }
+
+        .fnode h4 { font-size: 1.02rem; margin-top: 0.9rem; }
+        .fnode p { font-size: 0.75rem; color: var(--text-dim); margin-top: 0.2rem; }
+
+        .farrow {
+            align-self: center;
+            color: var(--accent);
+            font-size: 1.3rem;
+            font-weight: 700;
+            padding: 0 0.8rem;
+        }
+
+        .loop-key {
+            text-align: center;
+            margin-top: 2.2rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== 维拓AI星云 · 双视图 ===== */
+        .nebula-section { background: #08080c; }
+
+        .neb-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+        }
+
+        .neb-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.9rem 1.75rem;
+        }
+
+        .neb-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            padding: 0.2rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(0,212,170,0.12);
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.9rem;
+        }
+
+        .neb-card h3 { font-size: 1.2rem; margin-bottom: 0.6rem; }
+        .neb-card ul { list-style: none; }
+
+        .neb-card li {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            padding: 0.35rem 0 0.35rem 1.15rem;
+            position: relative;
+        }
+
+        .neb-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.85rem;
+            width: 0.4rem;
+            height: 0.4rem;
+            border-radius: 50%;
+            background: var(--accent);
+            opacity: 0.85;
+        }
+
+        .neb-axes {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.25rem;
+            margin-top: 1.25rem;
+        }
+
+        .neb-axis {
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.35rem 1.5rem;
+        }
+
+        .neb-axis h4 {
+            font-size: 0.95rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .neb-axis p {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+        }
+
+        /* ===== 四级凭证 ===== */
+        .cred-section { background: #08080c; }
+
+        .cred-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .cred-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.75rem 1.1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .cred-card:hover {
+            border-color: rgba(0,212,170,0.15);
+            transform: translateY(-4px);
+        }
+
+        .cred-card h4 { font-size: 1rem; margin-top: 0.9rem; }
+        .cred-card p { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.35rem; }
+
+        .onchain-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: rgba(0,212,170,0.05);
+            border: 1px solid rgba(0,212,170,0.18);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            max-width: 760px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ===== 三个承诺 ===== */
+        .promise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .promise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 1rem;
+            padding: 1.9rem 1.5rem;
+            text-align: center;
+        }
+
+        .promise-card h4 { font-size: 1.05rem; margin-top: 0.9rem; }
+
+        .promise-card p {
+            font-size: 0.87rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+            line-height: 1.65;
+        }
+
+        /* ===== 移动端菜单 ===== */
+        .nav-links.open {
+            display: flex;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            align-items: flex-start;
+            background: rgba(10,10,15,0.97);
+            backdrop-filter: blur(20px);
+            padding: 1.25rem 2rem 1.5rem;
+            gap: 1.1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
         /* ===== 响应式 ===== */
         @media (max-width: 1024px) {
             .service-grid { grid-template-columns: repeat(2, 1fr); }
+            .cred-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .steps { grid-template-columns: 1fr; }
+            .step::after { display: none; }
         }
 
         @media (max-width: 768px) {
@@ -827,9 +1089,17 @@
 
             .service-grid,
             .about-grid,
-            .contact-grid {
+            .contact-grid,
+            .neb-grid,
+            .neb-axes,
+            .cred-grid,
+            .promise-grid {
                 grid-template-columns: 1fr;
             }
+
+            .flow { flex-direction: column; align-items: center; }
+            .fnode { max-width: 320px; width: 100%; }
+            .farrow { transform: rotate(90deg); padding: 0.4rem 0; }
 
             .hex { --hex-w: 124px; padding: 0 18%; }
             .hex .hex-name { font-size: 0.78rem; }
@@ -858,12 +1128,13 @@
             <a href="#" class="logo">
                 <img src="logo-nav.png" alt="Vivaquest">
             </a>
-            <div class="nav-links">
-                <a href="#services" data-i18n="nav_services">服务</a>
-                <a href="https://vivaquest.org/nebula/" target="_blank" data-i18n="nav_galaxy">✦ 维拓AI星云</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#foundations" data-i18n="nav_foundations">博采众长</a>
+                <a href="#systems" data-i18n="nav_systems">三体系</a>
+                <a href="#journey" data-i18n="nav_journey">成长路径</a>
+                <a href="#nebula" data-i18n="nav_galaxy">维拓AI星云</a>
                 <a href="#about" data-i18n="nav_about">关于</a>
-                <a href="#contact" data-i18n="nav_contact">联系</a>
-                <a href="#contact" class="nav-cta" data-i18n="nav_join">加入我们</a>
+                <a href="#contact" class="nav-cta" data-i18n="nav_join">预约咨询</a>
             </div>
         </div>
         <div class="nav-right">
@@ -886,111 +1157,14 @@
             <span class="line2">Learn AI. Harness AI. Shape the Future.</span>
         </h1>
         <div class="hero-buttons">
-            <a href="#services" class="btn btn-primary" data-i18n="hero_cta_primary">课程与项目</a>
+            <a href="#systems" class="btn btn-primary" data-i18n="hero_cta_primary">探索学习体系</a>
             <a href="https://vivaquest.org/nebula/" target="_blank" class="btn btn-galaxy" data-i18n="hero_cta_galaxy">✦ 进入维拓AI星云</a>
-            <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_secondary">加入我们</a>
+            <a href="#contact" class="btn btn-outline" data-i18n="hero_cta_secondary">预约咨询</a>
         </div>
         <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- 服务矩阵 -->
-    <section id="services" class="section services-section">
-        <div class="section-header reveal">
-            <div class="section-label" data-i18n="services_label">Programs</div>
-            <h2 class="section-title" data-i18n="services_title">服务/项目 矩阵</h2>
-            <p class="section-desc" data-i18n="services_desc">从启蒙素养，到项目研究，紧扣AI发展脉搏</p>
-        </div>
-
-        <div class="service-grid">
-            <!-- L1: AI素养项目 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M6 8h2M6 11h4"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s1_name">AI素养项目</div>
-                <div class="service-details">
-                    <p data-i18n="s1_d1">网络课程</p>
-                    <p data-i18n="s1_d2">AI基础知识与全景概论</p>
-                    <p data-i18n="s1_d3">10-14岁青少年筑基</p>
-                    <span class="age-tag" data-i18n="s1_age">10-14岁</span>
-                </div>
-            </div>
-
-            <!-- L2: AI特训营 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2"/><path d="M6 9v6"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s2_name">AI特训营</div>
-                <div class="service-details">
-                    <p data-i18n="s2_d1">专题小班 · 在线直播</p>
-                    <p data-i18n="s2_d2">著名大学博士亲授</p>
-                    <p data-i18n="s2_d3">AI在各领域的应用及前景</p>
-                    <span class="age-tag" data-i18n="s2_age">12-18岁</span>
-                </div>
-            </div>
-
-            <!-- L3: AI证书课程 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s3_name">AI证书课程</div>
-                <div class="service-details">
-                    <p data-i18n="s3_d1">海内外高校专业课程</p>
-                    <p data-i18n="s3_d2">系统学习 · 正式官方证书</p>
-                    <p class="highlight" data-i18n="s3_d3">带学分*</p>
-                    <span class="age-tag" data-i18n="s3_age">16+</span>
-                </div>
-            </div>
-
-            <!-- L4: AI项目工坊 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s4_name">AI项目工坊</div>
-                <div class="service-details">
-                    <p data-i18n="s4_d1">AI项目制学习</p>
-                    <p data-i18n="s4_d2">小组讨论 · 实际操作</p>
-                    <p data-i18n="s4_d3">著名大学各领域青年专家领衔</p>
-                    <span class="age-tag" data-i18n="s4_age">12-20岁</span>
-                </div>
-            </div>
-
-            <!-- L5: AI冬夏令营 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14M8 21v-5a2 2 0 0 1 4 0v5"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s5_name">AI冬夏令营 · 中/英文版</div>
-                <div class="service-details">
-                    <p data-i18n="s5_d1">AI高强度暑校 · 大学校园</p>
-                    <p data-i18n="s5_d2">AI各领域课题研究</p>
-                    <p data-i18n="s5_d3">著名大学各领域专家面授指导</p>
-                    <p class="highlight" data-i18n="s5_d4">可取得学分/推荐信</p>
-                    <span class="age-tag" data-i18n="s5_age">15+</span>
-                </div>
-            </div>
-
-            <!-- L6: AI门徒计划 -->
-            <div class="service-card reveal">
-                <div class="service-icon">
-                    <svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
-                </div>
-                <div class="service-name" data-i18n="s6_name">AI项目门徒计划</div>
-                <div class="service-details">
-                    <p data-i18n="s6_d1">各领域专家匹配指导</p>
-                    <p data-i18n="s6_d2">行业资源对接匹配</p>
-                    <p data-i18n="s6_d3">长期指导项目进行</p>
-                    <p class="highlight" data-i18n="s6_d4">产出项目报告/论文</p>
-                    <span class="age-tag" data-i18n="s6_age">16-22岁</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 学术底座 · 蜂窝星图 -->
+    <!-- 博采众长 · 蜂窝星图（主屏核心版块） -->
     <section id="foundations" class="section foundations-section">
         <div class="section-header reveal">
             <div class="section-label" data-i18n="found_label">博采众长</div>
@@ -1018,6 +1192,255 @@
 
         <div class="hex-detail reveal" id="hexDetail"></div>
         <p style="text-align:center; color: var(--text-dim); font-size: 0.82rem; margin-top: 1.25rem;" data-i18n="found_hint">点击任意一层，查看来源与我们的做法</p>
+    </section>
+
+    <!-- 三体系 -->
+    <section id="systems" class="section systems-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="systems_label">Three Systems</div>
+            <h2 class="section-title" data-i18n="systems_title">三体系：知识 · 项目 · 星云</h2>
+            <p class="section-desc" data-i18n="systems_desc">维拓搭建三样东西，构成一套从理解到创造的 AI 能力成长体系。</p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><circle cx="4.5" cy="6" r="1.6"/><circle cx="19.5" cy="6" r="1.6"/><circle cx="4.5" cy="18" r="1.6"/><circle cx="19.5" cy="18" r="1.6"/><path d="M6 7l4.6 3.7M18 7l-4.6 3.7M6 17l4.6-3.7M18 17l-4.6-3.7"/></svg>
+                </div>
+                <div class="service-name" data-i18n="sys1_name">知识 Knowledge</div>
+                <div class="service-details">
+                    <p class="highlight" data-i18n="sys1_tag">Build Knowledge. Understand AI.</p>
+                    <p data-i18n="sys1_d1">分级 L0–L4 与模块制知识线</p>
+                    <p data-i18n="sys1_d2">建立 AI 知识，理解 AI</p>
+                </div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><polygon points="12 2.5 21 7.5 21 16.5 12 21.5 3 16.5 3 7.5"/><circle cx="12" cy="12" r="2.2"/><path d="M12 7.2v2.6M12 14.2v2.6M6.9 9.2l2.3 1.3M14.8 13.5l2.3 1.3M6.9 14.8l2.3-1.3M14.8 10.5l2.3-1.3"/></svg>
+                </div>
+                <div class="service-name" data-i18n="sys2_name">项目 Projects</div>
+                <div class="service-details">
+                    <p class="highlight" data-i18n="sys2_tag">Apply AI. Create Real-World Value.</p>
+                    <p data-i18n="sys2_d1">单元 / 中层 / 旗舰三层项目</p>
+                    <p data-i18n="sys2_d2">应用 AI 创造真实价值，旗舰含研究级项目</p>
+                </div>
+            </div>
+
+            <div class="service-card reveal">
+                <div class="service-icon">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.8"/><circle cx="12" cy="12" r="6.8"/><circle cx="18.8" cy="12" r="1.5"/><circle cx="12" cy="5.2" r="1.1"/><circle cx="5.2" cy="12" r="1.1"/><circle cx="15.8" cy="15.8" r="1.1"/></svg>
+                </div>
+                <div class="service-name" data-i18n="sys3_name">星云 Nebula</div>
+                <div class="service-details">
+                    <p class="highlight" data-i18n="sys3_tag">Connect Knowledge. Navigate Your Learning Journey.</p>
+                    <p data-i18n="sys3_d1">维拓AI星云：知识图谱与进度系统</p>
+                    <p data-i18n="sys3_d2">连接知识，规划学习</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 五级成长路径 -->
+    <section id="journey" class="section journey-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="journey_label">Learning Journey</div>
+            <h2 class="section-title" data-i18n="journey_title">一条路径，五个层级</h2>
+            <p class="section-desc" data-i18n="journey_desc">从启蒙到专业，按认知程度逐级进阶。</p>
+        </div>
+
+        <div class="steps reveal">
+            <div class="step">
+                <div class="lv">L0</div>
+                <h4 data-i18n="l0_name">启蒙</h4>
+                <div class="nm">Introduction</div>
+                <p data-i18n="l0_d">认知与兴趣唤醒（全 unplugged）</p>
+            </div>
+            <div class="step">
+                <div class="lv">L1</div>
+                <h4 data-i18n="l1_name">基础</h4>
+                <div class="nm">Foundations</div>
+                <p data-i18n="l1_d">AI 感知、安全使用与伦理启蒙</p>
+            </div>
+            <div class="step">
+                <div class="lv">L2</div>
+                <h4 data-i18n="l2_name">进阶</h4>
+                <div class="nm">Intermediate</div>
+                <p data-i18n="l2_d">理解原理，解决问题与项目</p>
+            </div>
+            <div class="step">
+                <div class="lv">L3</div>
+                <h4 data-i18n="l3_name">高阶</h4>
+                <div class="nm">Advanced</div>
+                <p data-i18n="l3_d">技术深化与跨学科创造</p>
+            </div>
+            <div class="step">
+                <div class="lv">L4</div>
+                <h4 data-i18n="l4_name">专业</h4>
+                <div class="nm">Professional</div>
+                <p data-i18n="l4_d">研究级项目与学术产出</p>
+            </div>
+        </div>
+        <p class="journey-note reveal" data-i18n="journey_note">按认知程度进阶，不必从 L0 起步——能力达到即可通过入营测评越级。</p>
+    </section>
+
+    <!-- 学做成 -->
+    <section id="loop" class="section loop-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="loop_label">Learn · Build · Achieve</div>
+            <h2 class="section-title" data-i18n="loop_title">学、做、成</h2>
+            <p class="section-desc" data-i18n="loop_desc">每个模块以项目收尾，每次进阶留下可展示的成果。</p>
+        </div>
+
+        <div class="flow reveal">
+            <div class="fnode">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="4.6" rx="1.5"/><rect x="3" y="9.7" width="18" height="4.6" rx="1.5"/><rect x="3" y="16.4" width="18" height="4.6" rx="1.5"/></svg>
+                </div>
+                <h4 data-i18n="loop1_name">知识模块</h4>
+                <p data-i18n="loop1_en">Knowledge Modules</p>
+            </div>
+            <div class="farrow">→</div>
+            <div class="fnode">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/></svg>
+                </div>
+                <h4 data-i18n="loop2_name">单元项目</h4>
+                <p data-i18n="loop2_en">Unit Projects</p>
+            </div>
+            <div class="farrow">→</div>
+            <div class="fnode">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2.4"/><circle cx="12" cy="12" r="2.4"/><circle cx="19" cy="12" r="2.4"/><path d="M7.4 12h2.2M14.4 12h2.2"/></svg>
+                </div>
+                <h4 data-i18n="loop3_name">中层项目</h4>
+                <p data-i18n="loop3_en">Milestone Projects</p>
+            </div>
+            <div class="farrow">→</div>
+            <div class="fnode">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.8-4.6 4.3 1.2 6.1L12 17l-5.6 3 1.2-6.1L3 9.6l6.3-.8L12 3z"/></svg>
+                </div>
+                <h4 data-i18n="loop4_name">旗舰项目</h4>
+                <p data-i18n="loop4_en">Flagship Projects</p>
+            </div>
+        </div>
+        <p class="loop-key reveal" data-i18n="loop_key">旗舰项目含研究级项目——教授带教、门徒计划等高阶形态，统一归于项目体系。</p>
+    </section>
+
+    <!-- 维拓AI星云 · 双视图 -->
+    <section id="nebula" class="section nebula-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="nebula_label">AI Nebula by VIVA QUEST</div>
+            <h2 class="section-title" data-i18n="nebula_title">维拓AI星云</h2>
+            <p class="section-desc" data-i18n="nebula_desc">课程体系的数字孪生——同一份知识，公共视图是地图，学生视图是进度。</p>
+        </div>
+
+        <div class="neb-grid reveal">
+            <div class="neb-card">
+                <span class="neb-tag" data-i18n="neb1_tag">永久免费</span>
+                <h3 data-i18n="neb1_name">公共视图</h3>
+                <ul>
+                    <li data-i18n="neb1_l1">探索 AI 知识图谱与开放资源</li>
+                    <li data-i18n="neb1_l2">前沿技术与产业观察</li>
+                    <li data-i18n="neb1_l3">无需购买课程，人人可用</li>
+                </ul>
+            </div>
+            <div class="neb-card">
+                <span class="neb-tag" data-i18n="neb2_tag">报读课程</span>
+                <h3 data-i18n="neb2_name">学生视图</h3>
+                <ul>
+                    <li data-i18n="neb2_l1">学习路径点亮，进度一目了然</li>
+                    <li data-i18n="neb2_l2">已完成 · 学习中 · 待解锁</li>
+                    <li data-i18n="neb2_l3">解锁状态即下一步目标</li>
+                </ul>
+            </div>
+        </div>
+        <div class="neb-axes reveal">
+            <div class="neb-axis">
+                <h4 data-i18n="axis1_name">主题轴 · 星座臂</h4>
+                <p data-i18n="axis1_d">回答"这是什么领域"——机器学习、隐私安全等，节点归入各臂。</p>
+            </div>
+            <div class="neb-axis">
+                <h4 data-i18n="axis2_name">深度轴 · 五层</h4>
+                <p data-i18n="axis2_d">回答"学到什么程度"——认识 → 知识 → 掌握 → 应用 → 研发。</p>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top: 2.5rem;" class="reveal">
+            <a class="btn btn-galaxy" href="https://vivaquest.org/nebula/" target="_blank" data-i18n="nebula_cta">✦ 进入维拓AI星云</a>
+        </div>
+    </section>
+
+    <!-- 四级凭证 -->
+    <section id="credentials" class="section cred-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="cred_label">Credentials</div>
+            <h2 class="section-title" data-i18n="cred_title">每一步成长，都有可验证的凭证</h2>
+        </div>
+
+        <div class="cred-grid reveal">
+            <div class="cred-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.6 14L7 21l5-2.4L17 21l-1.6-7"/></svg>
+                </div>
+                <h4 data-i18n="cred1_name">模块徽章</h4>
+                <p data-i18n="cred1_d">完成知识模块</p>
+            </div>
+            <div class="cred-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><path d="M5 21V4M5 4h13.5l-3 4 3 4H5"/></svg>
+                </div>
+                <h4 data-i18n="cred2_name">里程碑徽章</h4>
+                <p data-i18n="cred2_d">完成中层项目</p>
+            </div>
+            <div class="cred-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l2.7 5.8 6.3.8-4.6 4.3 1.2 6.1L12 17l-5.6 3 1.2-6.1L3 9.6l6.3-.8L12 3z"/></svg>
+                </div>
+                <h4 data-i18n="cred3_name">成就徽章</h4>
+                <p data-i18n="cred3_d">择优授予的特别成就</p>
+            </div>
+            <div class="cred-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M7 8h10M7 11h6"/><circle cx="16.5" cy="13.5" r="2"/><path d="M15.6 15.3l-.8 4.7 1.7-1 1.7 1-.8-4.7"/></svg>
+                </div>
+                <h4 data-i18n="cred4_name">数字证书</h4>
+                <p data-i18n="cred4_d">旗舰项目 · 研究级 · 层级认证</p>
+            </div>
+        </div>
+        <div class="onchain-note reveal" data-i18n="cred_note">数字证书公开可验证、不可伪造；未成年人可识别信息绝不写入链上。</div>
+    </section>
+
+    <!-- 三个承诺 -->
+    <section id="promise" class="section promise-section">
+        <div class="section-header reveal">
+            <div class="section-label" data-i18n="promise_label">Our Commitments</div>
+            <h2 class="section-title" data-i18n="promise_title">三个承诺</h2>
+        </div>
+
+        <div class="promise-grid reveal">
+            <div class="promise-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><path d="M12 3l7 2.8v5.2c0 4.6-3 8.1-7 10-4-1.9-7-5.4-7-10V5.8L12 3z"/><path d="M9.3 12l1.9 1.9 3.6-3.6"/></svg>
+                </div>
+                <h4 data-i18n="p1_name">保护隐私</h4>
+                <p data-i18n="p1_d">未成年人信息零采集，家长知情同意</p>
+            </div>
+            <div class="promise-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><path d="M3 12h4l2.5-5 3 10L15 12h6"/></svg>
+                </div>
+                <h4 data-i18n="p2_name">过程可见</h4>
+                <p data-i18n="p2_d">学习路径清晰，作品产出明确</p>
+            </div>
+            <div class="promise-card">
+                <div class="service-icon" style="margin:0 auto 0.75rem;">
+                    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-1.9 4.1-4.1 1.9 1.9-4.1 4.1-1.9z"/></svg>
+                </div>
+                <h4 data-i18n="p3_name">科学使用</h4>
+                <p data-i18n="p3_d">培养理解、判断与创造，AI 辅学不代学</p>
+            </div>
+        </div>
     </section>
 
     <!-- 关于我们 -->
@@ -1095,9 +1518,11 @@
             <div class="footer-logo">Vivaquest<span>.</span></div>
             <div class="footer-copy" data-i18n="footer_copy">© 2026 成都高远动量教育科技有限公司. All rights reserved.</div>
             <div class="footer-links">
-                <a href="#services" data-i18n="nav_services">服务</a>
+                <a href="#foundations" data-i18n="nav_foundations">博采众长</a>
+                <a href="#systems" data-i18n="nav_systems">三体系</a>
+                <a href="#journey" data-i18n="nav_journey">成长路径</a>
+                <a href="#nebula" data-i18n="nav_galaxy">维拓AI星云</a>
                 <a href="#about" data-i18n="nav_about">关于</a>
-                <a href="#contact" data-i18n="nav_contact">联系</a>
             </div>
         </div>
     </footer>
@@ -1106,57 +1531,101 @@
         // 多语言内容
         const content = {
             zh: {
-                nav_services: "服务",
-                nav_galaxy: "✦ 维拓AI星云",
+                nav_foundations: "博采众长",
+                nav_systems: "三体系",
+                nav_journey: "成长路径",
+                nav_galaxy: "维拓AI星云",
                 nav_about: "关于",
-                nav_contact: "联系",
-                nav_join: "加入我们",
+                nav_join: "预约咨询",
                 hero_line1: "学用 AI 智创未来",
                 hero_line2: "Learn AI. Harness AI. Shape the Future.",
-                hero_cta_primary: "课程与项目",
+                hero_cta_primary: "探索学习体系",
                 hero_cta_galaxy: "✦ 进入维拓AI星云",
-                hero_cta_secondary: "加入我们",
-                services_label: "Programs",
-                services_title: "服务/项目 矩阵",
-                services_desc: "从启蒙素养，到项目研究，紧扣AI发展脉搏",
+                hero_cta_secondary: "预约咨询",
+                systems_label: "Three Systems",
+                systems_title: "三体系：知识 · 项目 · 星云",
+                systems_desc: "维拓搭建三样东西，构成一套从理解到创造的 AI 能力成长体系。",
+                sys1_name: "知识 Knowledge",
+                sys1_tag: "Build Knowledge. Understand AI.",
+                sys1_d1: "分级 L0–L4 与模块制知识线",
+                sys1_d2: "建立 AI 知识，理解 AI",
+                sys2_name: "项目 Projects",
+                sys2_tag: "Apply AI. Create Real-World Value.",
+                sys2_d1: "单元 / 中层 / 旗舰三层项目",
+                sys2_d2: "应用 AI 创造真实价值，旗舰含研究级项目",
+                sys3_name: "星云 Nebula",
+                sys3_tag: "Connect Knowledge. Navigate Your Learning Journey.",
+                sys3_d1: "维拓AI星云：知识图谱与进度系统",
+                sys3_d2: "连接知识，规划学习",
+                journey_label: "Learning Journey",
+                journey_title: "一条路径，五个层级",
+                journey_desc: "从启蒙到专业，按认知程度逐级进阶。",
+                l0_name: "启蒙",
+                l0_d: "认知与兴趣唤醒（全 unplugged）",
+                l1_name: "基础",
+                l1_d: "AI 感知、安全使用与伦理启蒙",
+                l2_name: "进阶",
+                l2_d: "理解原理，解决问题与项目",
+                l3_name: "高阶",
+                l3_d: "技术深化与跨学科创造",
+                l4_name: "专业",
+                l4_d: "研究级项目与学术产出",
+                journey_note: "按认知程度进阶，不必从 L0 起步——能力达到即可通过入营测评越级。",
+                loop_label: "Learn · Build · Achieve",
+                loop_title: "学、做、成",
+                loop_desc: "每个模块以项目收尾，每次进阶留下可展示的成果。",
+                loop1_name: "知识模块",
+                loop1_en: "Knowledge Modules",
+                loop2_name: "单元项目",
+                loop2_en: "Unit Projects",
+                loop3_name: "中层项目",
+                loop3_en: "Milestone Projects",
+                loop4_name: "旗舰项目",
+                loop4_en: "Flagship Projects",
+                loop_key: "旗舰项目含研究级项目——教授带教、门徒计划等高阶形态，统一归于项目体系。",
+                nebula_label: "AI Nebula by VIVA QUEST",
+                nebula_title: "维拓AI星云",
+                nebula_desc: "课程体系的数字孪生——同一份知识，公共视图是地图，学生视图是进度。",
+                neb1_tag: "永久免费",
+                neb1_name: "公共视图",
+                neb1_l1: "探索 AI 知识图谱与开放资源",
+                neb1_l2: "前沿技术与产业观察",
+                neb1_l3: "无需购买课程，人人可用",
+                neb2_tag: "报读课程",
+                neb2_name: "学生视图",
+                neb2_l1: "学习路径点亮，进度一目了然",
+                neb2_l2: "已完成 · 学习中 · 待解锁",
+                neb2_l3: "解锁状态即下一步目标",
+                axis1_name: "主题轴 · 星座臂",
+                axis1_d: "回答“这是什么领域”——机器学习、隐私安全等，节点归入各臂。",
+                axis2_name: "深度轴 · 五层",
+                axis2_d: "回答“学到什么程度”——认识 → 知识 → 掌握 → 应用 → 研发。",
+                nebula_cta: "✦ 进入维拓AI星云",
+                cred_label: "Credentials",
+                cred_title: "每一步成长，都有可验证的凭证",
+                cred1_name: "模块徽章",
+                cred1_d: "完成知识模块",
+                cred2_name: "里程碑徽章",
+                cred2_d: "完成中层项目",
+                cred3_name: "成就徽章",
+                cred3_d: "择优授予的特别成就",
+                cred4_name: "数字证书",
+                cred4_d: "旗舰项目 · 研究级 · 层级认证",
+                cred_note: "数字证书公开可验证、不可伪造；未成年人可识别信息绝不写入链上。",
+                promise_label: "Our Commitments",
+                promise_title: "三个承诺",
+                p1_name: "保护隐私",
+                p1_d: "未成年人信息零采集，家长知情同意",
+                p2_name: "过程可见",
+                p2_d: "学习路径清晰，作品产出明确",
+                p3_name: "科学使用",
+                p3_d: "培养理解、判断与创造，AI 辅学不代学",
                 found_label: "博采众长",
                 found_title: "全球智慧，本土构筑",
                 found_desc: "萃取名校、国际组织与行业巨擘知识精华，纳入我国技术生态与文化，<br>重构设计，只为恰到好处。",
                 found_hint: "点击任意一层，查看来源与我们的做法",
                 found_center: "Viva 体系",
                 found_center_sub: "六层底座 · 博采众长",
-                s1_name: "AI素养项目",
-                s1_d1: "网络课程",
-                s1_d2: "AI基础知识与全景概论",
-                s1_d3: "10-14岁青少年筑基",
-                s1_age: "10-14岁",
-                s2_name: "AI特训营",
-                s2_d1: "专题小班 · 在线直播",
-                s2_d2: "著名大学博士亲授",
-                s2_d3: "AI在各领域的应用及前景",
-                s2_age: "12-18岁",
-                s3_name: "AI证书课程",
-                s3_d1: "海内外高校专业课程",
-                s3_d2: "系统学习 · 正式官方证书",
-                s3_d3: "带学分*",
-                s3_age: "16+",
-                s4_name: "AI项目工坊",
-                s4_d1: "AI项目制学习",
-                s4_d2: "小组讨论 · 实际操作",
-                s4_d3: "著名大学各领域青年专家领衔",
-                s4_age: "12-20岁",
-                s5_name: "AI冬夏令营 · 中/英文版",
-                s5_d1: "AI高强度暑校 · 大学校园",
-                s5_d2: "AI各领域课题研究",
-                s5_d3: "著名大学各领域专家面授指导",
-                s5_d4: "可取得学分/推荐信",
-                s5_age: "15+",
-                s6_name: "AI项目门徒计划",
-                s6_d1: "各领域专家匹配指导",
-                s6_d2: "行业资源对接匹配",
-                s6_d3: "长期指导项目进行",
-                s6_d4: "产出项目报告/论文",
-                s6_age: "16-22岁",
                 about_title: "关于我们",
                 about_text: "维拓相信AI正在以前所未有的速度和深度改变我们的社会和生活，因此致力于让更多人，尤其是青少年，掌握AI，使用AI，成为变革时代最先掌握理念与方法的领先者。",
                 contact_title: "联系我们",
@@ -1182,57 +1651,101 @@
                 footer_copy: "© 2026 成都高远动量教育科技有限公司. All rights reserved."
             },
             en: {
-                nav_services: "Services",
-                nav_galaxy: "✦ AI Galaxy",
+                nav_foundations: "Foundations",
+                nav_systems: "Three Systems",
+                nav_journey: "Learning Path",
+                nav_galaxy: "AI Nebula",
                 nav_about: "About",
-                nav_contact: "Contact",
-                nav_join: "Join Us",
+                nav_join: "Book a Consultation",
                 hero_line1: "学用 AI 智创未来",
                 hero_line2: "Learn AI. Harness AI. Shape the Future.",
-                hero_cta_primary: "Courses & Programs",
-                hero_cta_galaxy: "✦ Enter the AI Galaxy",
-                hero_cta_secondary: "Join Us",
-                services_label: "Programs",
-                services_title: "Programs & Services",
-                services_desc: "From foundational literacy to research projects, staying in sync with the pulse of AI development.",
+                hero_cta_primary: "Explore the System",
+                hero_cta_galaxy: "✦ Enter the AI Nebula",
+                hero_cta_secondary: "Book a Consultation",
+                systems_label: "Three Systems",
+                systems_title: "Three Systems: Knowledge · Projects · Nebula",
+                systems_desc: "VIVA QUEST builds three things — an AI capability growth system from understanding to creation.",
+                sys1_name: "Knowledge",
+                sys1_tag: "Build Knowledge. Understand AI.",
+                sys1_d1: "Levels L0–L4 with a modular knowledge line",
+                sys1_d2: "Build AI knowledge, understand AI",
+                sys2_name: "Projects",
+                sys2_tag: "Apply AI. Create Real-World Value.",
+                sys2_d1: "Three tiers: unit, milestone, flagship",
+                sys2_d2: "Apply AI to create real-world value — flagship includes research-grade projects",
+                sys3_name: "Nebula",
+                sys3_tag: "Connect Knowledge. Navigate Your Learning Journey.",
+                sys3_d1: "AI Nebula: knowledge graph and progress system",
+                sys3_d2: "Connect knowledge, navigate learning",
+                journey_label: "Learning Journey",
+                journey_title: "One Pathway, Five Levels",
+                journey_desc: "From introduction to professional, advancing by cognitive readiness.",
+                l0_name: "Introduction",
+                l0_d: "Awareness and interest, fully unplugged",
+                l1_name: "Foundations",
+                l1_d: "AI awareness, safe habits, ethics",
+                l2_name: "Intermediate",
+                l2_d: "Understand the principles, solve problems through projects",
+                l3_name: "Advanced",
+                l3_d: "Technical depth and interdisciplinary creation",
+                l4_name: "Professional",
+                l4_d: "Research-grade projects and academic output",
+                journey_note: "Advancement follows cognitive readiness, not age — capable learners can skip levels via assessment.",
+                loop_label: "Learn · Build · Achieve",
+                loop_title: "Learn, Build, Achieve",
+                loop_desc: "Every module ends with a project; every step forward leaves a demonstrable outcome.",
+                loop1_name: "Knowledge Modules",
+                loop1_en: "L0–L4 knowledge line",
+                loop2_name: "Unit Projects",
+                loop2_en: "Every module's deliverable",
+                loop3_name: "Milestone Projects",
+                loop3_en: "Themed, coach-led milestones",
+                loop4_name: "Flagship Projects",
+                loop4_en: "Capstones incl. research-grade",
+                loop_key: "Flagship projects are home to research-grade work — professorial mentorship and apprenticeship programs, unified under the Projects system.",
+                nebula_label: "AI Nebula by VIVA QUEST",
+                nebula_title: "AI Nebula",
+                nebula_desc: "The digital twin of the curriculum — the same knowledge is a map in the public view, and progress in the student view.",
+                neb1_tag: "Free Forever",
+                neb1_name: "Public View",
+                neb1_l1: "Explore the AI knowledge graph and open resources",
+                neb1_l2: "Frontier technology and industry insights",
+                neb1_l3: "Open to everyone — no purchase required",
+                neb2_tag: "For Enrolled Students",
+                neb2_name: "Student View",
+                neb2_l1: "Your learning path lights up as you progress",
+                neb2_l2: "Done · In Progress · Locked",
+                neb2_l3: "Locked states show exactly what's next",
+                axis1_name: "Thematic Axis · Constellation Arms",
+                axis1_d: "\"What field is this?\" — machine learning, privacy & safety, and more, organized into arms.",
+                axis2_name: "Depth Axis · Five Layers",
+                axis2_d: "\"How deep does it go?\" — Awareness → Knowledge → Mastery → Application → R&D.",
+                nebula_cta: "✦ Enter the AI Nebula",
+                cred_label: "Credentials",
+                cred_title: "Every Step of Growth Earns a Verifiable Credential",
+                cred1_name: "Module Badge",
+                cred1_d: "Complete a knowledge module",
+                cred2_name: "Milestone Badge",
+                cred2_d: "Complete a milestone project",
+                cred3_name: "Achievement Badge",
+                cred3_d: "Awarded selectively for excellence",
+                cred4_name: "Digital Certificate",
+                cred4_d: "Flagship projects · research-grade · level certification",
+                cred_note: "Digital certificates are publicly verifiable and tamper-proof; minors' identifiable information is never written on-chain.",
+                promise_label: "Our Commitments",
+                promise_title: "Three Commitments",
+                p1_name: "Privacy First",
+                p1_d: "Zero data collection from minors, with parental consent",
+                p2_name: "Visible Progress",
+                p2_d: "Clear learning path, tangible outcomes",
+                p3_name: "Responsible Use",
+                p3_d: "Building understanding, judgment and creation — AI assists learning, never replaces it",
                 found_label: "博采众长 · Global Wisdom",
                 found_title: "Global Wisdom, Locally Crafted",
                 found_desc: "Distilling the best of leading universities, international organizations and industry giants — rebuilt into China's tech ecosystem and culture, designed to be just right.",
                 found_hint: "Click any layer to see its sources and our craft",
                 found_center: "Viva System",
                 found_center_sub: "Six foundations, drawn from the best",
-                s1_name: "AI Literacy Program",
-                s1_d1: "Online Courses",
-                s1_d2: "AI Fundamentals & Panoramic Overview",
-                s1_d3: "Building foundation for ages 10-14",
-                s1_age: "Ages 10-14",
-                s2_name: "AI Bootcamp",
-                s2_d1: "Small-group Live Sessions",
-                s2_d2: "Taught by PhDs from Top Universities",
-                s2_d3: "AI Applications & Future Prospects",
-                s2_age: "Ages 12-18",
-                s3_name: "AI Certificate Program",
-                s3_d1: "Professional Courses from Global Universities",
-                s3_d2: "Systematic Learning with Official Certificates",
-                s3_d3: "With Academic Credits*",
-                s3_age: "Ages 16+",
-                s4_name: "AI Project Workshop",
-                s4_d1: "Project-based AI Learning",
-                s4_d2: "Group Discussion & Hands-on Practice",
-                s4_d3: "Led by Young Experts from Top Universities",
-                s4_age: "Ages 12-20",
-                s5_name: "AI Summer/Winter Camp (CN/EN)",
-                s5_d1: "Intensive AI School on University Campus",
-                s5_d2: "Research Projects Across AI Fields",
-                s5_d3: "Face-to-face Guidance by University Experts",
-                s5_d4: "Academic Credits / Recommendation Letters",
-                s5_age: "Ages 15+",
-                s6_name: "AI Mentorship Program",
-                s6_d1: "Matched Expert Guidance Across Fields",
-                s6_d2: "Industry Resource Connection",
-                s6_d3: "Long-term Project Mentorship",
-                s6_d4: "Producing Project Reports / Papers",
-                s6_age: "Ages 16-22",
                 about_title: "About Us",
                 about_text: "Vivaquest believes AI is transforming our society and lives at an unprecedented pace and depth. We are dedicated to empowering more people, especially youth, to master AI, use AI, and become leaders who grasp the ideas and methods of this transformative era.",
                 contact_title: "Contact Us",
@@ -1488,8 +2001,15 @@
 
         // 移动端菜单
         function toggleMenu() {
-            alert(currentLang === 'zh' ? '请直接滚动浏览页面' : 'Please scroll to explore the page');
+            document.getElementById('navLinks').classList.toggle('open');
         }
+
+        // 点击菜单项后收起移动端菜单
+        document.querySelectorAll('#navLinks a').forEach(function (el) {
+            el.addEventListener('click', function () {
+                document.getElementById('navLinks').classList.remove('open');
+            });
+        });
     </script>
 
 </body>
